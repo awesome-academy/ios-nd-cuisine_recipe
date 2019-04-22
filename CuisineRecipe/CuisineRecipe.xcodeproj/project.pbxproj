@@ -66,8 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				045905D4226D9CD30071CD38 /* App */,
-				045905D5226D9CDB0071CD38 /* Extensions */,
-				045905D6226D9CEB0071CD38 /* Data */,
+				045905E1226EED290071CD38 /* Extensions */,
+				045905E0226EED230071CD38 /* Data */,
 				045905D7226D9CF40071CD38 /* Scenes */,
 				045905C4226D925D0071CD38 /* Assets.xcassets */,
 				045905C6226D925D0071CD38 /* LaunchScreen.storyboard */,
@@ -84,22 +84,6 @@
 				045905BA226D925C0071CD38 /* AppDelegate.swift */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		045905D5226D9CDB0071CD38 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		045905D6226D9CEB0071CD38 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				045905DB226DA0040071CD38 /* Source */,
-				045905DA226D9E0E0071CD38 /* Model */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		045905D7226D9CF40071CD38 /* Scenes */ = {
@@ -127,34 +111,18 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		045905DA226D9E0E0071CD38 /* Model */ = {
+		045905E0226EED230071CD38 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Model;
+			path = Data;
 			sourceTree = "<group>";
 		};
-		045905DB226DA0040071CD38 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				045905DC226DA0170071CD38 /* Remote */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		045905DC226DA0170071CD38 /* Remote */ = {
-			isa = PBXGroup;
-			children = (
-				045905DD226DA01D0071CD38 /* API */,
-			);
-			path = Remote;
-			sourceTree = "<group>";
-		};
-		045905DD226DA01D0071CD38 /* API */ = {
+		045905E1226EED290071CD38 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = API;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		450C8C252B9B1B98F1D7CBF3 /* Frameworks */ = {

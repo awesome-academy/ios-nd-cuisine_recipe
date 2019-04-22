@@ -6,4 +6,5 @@ target 'CuisineRecipe' do
   use_frameworks!
 
   # Pods for CuisineRecipe
+
 end
