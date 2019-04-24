@@ -15,6 +15,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //Setup Tabbar's properties
+        UITabBar.appearance().tintColor = UIColor(hexString: "#666666FF")
+        UITabBar.appearance().backgroundColor = .white
         return true
     }
     
