@@ -15,10 +15,13 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //Setup Tabbar's properties
-        UITabBar.appearance().tintColor = UIColor(hexString: "#666666FF")
-        UITabBar.appearance().backgroundColor = .white
+        configTabBar()
         return true
+    }
+    
+    func configTabBar() {
+        UITabBar.appearance().tintColor = UIColor(hexString: "666")
+        UITabBar.appearance().backgroundColor = .white
     }
     
     // MARK: - Core Data stack
