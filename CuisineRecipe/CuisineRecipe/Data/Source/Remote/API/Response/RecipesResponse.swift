@@ -21,12 +21,4 @@ struct RecipesResponse: Codable {
         case matches
         case criteria 
     }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        attribution = try values.decodeIfPresent(Attribution.self, forKey: .attribution)
-        totalMatchCount = try values.decodeIfPresent(Int.self, forKey: .totalMatchCount)
-        matches = try values.decodeIfPresent([Matches].self, forKey: .matches)
-        criteria = try values.decodeIfPresent(Criteria.self, forKey: .criteria)
-    }
 }

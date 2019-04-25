@@ -11,7 +11,7 @@ import Alamofire
 
 final class MainViewController: UIViewController {
     private let repoRepository = RecipesRepositoryImpl(api: APIService.shared)
-    var recipes: [Matches]?
+    var recipes: [Matches] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,7 @@ final class MainViewController: UIViewController {
             case .success(let response):
                 guard let data = response?.matches else { return }
                 self.recipes = data
+                print(data)
             case .failure(let error):
                 self.showError(message: error?.errorMessage)
             }

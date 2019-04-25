@@ -13,14 +13,21 @@ struct Images: Codable {
     let hostedSmallUrl: String?
     
     enum CodingKeys: String, CodingKey {
-        
         case hostedLargeUrl
         case hostedSmallUrl 
     }
     
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        hostedLargeUrl = try values.decodeIfPresent(String.self, forKey: .hostedLargeUrl)
-        hostedSmallUrl = try values.decodeIfPresent(String.self, forKey: .hostedSmallUrl)
+    init(hostedLargeUrl: String?, hostedSmallUrl: String?) {
+        if hostedLargeUrl == nil {
+            self.hostedLargeUrl = "default_image"
+        } else {
+            self.hostedLargeUrl = hostedLargeUrl
+        }
+        
+        if hostedSmallUrl == nil {
+            self.hostedSmallUrl = "default_image"
+        } else {
+            self.hostedSmallUrl = hostedSmallUrl
+        }
     }
 }

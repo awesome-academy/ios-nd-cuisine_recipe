@@ -17,22 +17,11 @@ struct Flavors: Codable {
     let piquant: Double?
     
     enum CodingKeys: String, CodingKey {
-        
         case salty
         case sour
         case sweet
         case bitter
         case meaty
         case piquant
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        salty = try values.decodeIfPresent(Double.self, forKey: .salty)
-        sour = try values.decodeIfPresent(Double.self, forKey: .sour)
-        sweet = try values.decodeIfPresent(Double.self, forKey: .sweet)
-        bitter = try values.decodeIfPresent(Double.self, forKey: .bitter)
-        meaty = try values.decodeIfPresent(Double.self, forKey: .meaty)
-        piquant = try values.decodeIfPresent(Double.self, forKey: .piquant)
     }
 }

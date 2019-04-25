@@ -13,14 +13,7 @@ struct Attributes: Codable {
     let cuisine: [String]?
     
     enum CodingKeys: String, CodingKey {
-        
         case course
         case cuisine 
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        course = try values.decodeIfPresent([String].self, forKey: .course)
-        cuisine = try values.decodeIfPresent([String].self, forKey: .cuisine)
     }
 }

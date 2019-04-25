@@ -13,14 +13,7 @@ struct FlavorPiquant: Codable {
     let max: Int?
     
     enum CodingKeys: String, CodingKey {
-        
         case min
         case max
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        min = try values.decodeIfPresent(Double.self, forKey: .min)
-        max = try values.decodeIfPresent(Int.self, forKey: .max)
     }
 }

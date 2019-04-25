@@ -18,6 +18,6 @@ final class GetRecipesRequest: BaseRequest {
             "start": startIndex
         ]
         
-        super.init(url: Urls.getRecipesList, requestType: .get, parameters: parameters)
+        super.init(url: Urls.basePath + "recipes", requestType: .get, parameters: parameters)
     }
 }

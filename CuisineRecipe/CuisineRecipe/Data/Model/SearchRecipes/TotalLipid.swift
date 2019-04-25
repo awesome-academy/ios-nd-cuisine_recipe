@@ -1,5 +1,5 @@
 //
-//  AttributeRanges.swift
+//  FAT.swift
 //  CuisineRecipe
 //
 //  Created by mac on 4/24/19.
@@ -8,10 +8,12 @@
 
 import Foundation
 
-struct AttributeRanges: Codable {
-    let flavorPiquant: FlavorPiquant?
+struct TotalLipid: Codable {
+    let min: Int?
+    let max: Int?
     
     enum CodingKeys: String, CodingKey {
-        case flavorPiquant = "flavor-piquant"
+        case min
+        case max
     }
 }

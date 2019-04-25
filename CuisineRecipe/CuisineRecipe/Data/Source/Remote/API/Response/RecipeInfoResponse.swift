@@ -41,22 +41,4 @@ struct RecipeInfoResponse: Codable {
         case source
         case id 
     }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        attribution = try values.decodeIfPresent(Attribution.self, forKey: .attribution)
-        ingredientLines = try values.decodeIfPresent([String].self, forKey: .ingredientLines)
-        flavors = try values.decodeIfPresent(Flavors.self, forKey: .flavors)
-        nutritionEstimates = try values.decodeIfPresent([NutritionEstimates].self, forKey: .nutritionEstimates)
-        images = try values.decodeIfPresent([Images].self, forKey: .images)
-        name = try values.decodeIfPresent(String.self, forKey: .name)
-        yield = try values.decodeIfPresent(String.self, forKey: .yield)
-        totalTime = try values.decodeIfPresent(String.self, forKey: .totalTime)
-        attributes = try values.decodeIfPresent(Attributes.self, forKey: .attributes)
-        totalTimeInSeconds = try values.decodeIfPresent(Int.self, forKey: .totalTimeInSeconds)
-        rating = try values.decodeIfPresent(Double.self, forKey: .rating)
-        numberOfServings = try values.decodeIfPresent(Int.self, forKey: .numberOfServings)
-        source = try values.decodeIfPresent(Source.self, forKey: .source)
-        id = try values.decodeIfPresent(String.self, forKey: .id)
-    }
 }

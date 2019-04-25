@@ -9,15 +9,9 @@
 import Foundation
 
 struct NutritionRestrictions: Codable {
-    let fAT: FAT?
+    let totalLipid: TotalLipid?
     
     enum CodingKeys: String, CodingKey {
-        
-        case fAT = "FAT"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        fAT = try values.decodeIfPresent(FAT.self, forKey: .fAT)
+        case totalLipid = "FAT"
     }
 }

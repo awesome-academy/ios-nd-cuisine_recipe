@@ -14,16 +14,8 @@ struct Source: Codable {
     let sourceDisplayName: String?
     
     enum CodingKeys: String, CodingKey {
-        
         case sourceRecipeUrl 
         case sourceSiteUrl
         case sourceDisplayName 
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        sourceRecipeUrl = try values.decodeIfPresent(String.self, forKey: .sourceRecipeUrl)
-        sourceSiteUrl = try values.decodeIfPresent(String.self, forKey: .sourceSiteUrl)
-        sourceDisplayName = try values.decodeIfPresent(String.self, forKey: .sourceDisplayName)
     }
 }

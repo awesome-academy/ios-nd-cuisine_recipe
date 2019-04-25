@@ -48,10 +48,10 @@ struct APIService {
                             completion(nil, BaseError.unexpectedError)
                         }
                     } catch {
-                        completion(nil, BaseError.networkError)
+                        completion(nil, BaseError.apiFailure)
                     }
-                case .failure(let error):
-                    completion(nil, error as? BaseError)
+                case .failure:
+                    completion(nil, BaseError.networkError)
                 }
             }
     }

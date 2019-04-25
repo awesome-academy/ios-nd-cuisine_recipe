@@ -12,11 +12,6 @@ import Alamofire
 final class RecipeInfoRequest: BaseRequest {
     
     required init(recipeId: String) {
-        let parameters: [String: Any] = [
-            "_app_id": APIKey.appId,
-            "_app_key": APIKey.apiKey
-        ]
-    
-        super.init(url: Urls.recipeInfo + recipeId, requestType: .get, parameters: parameters)
+        super.init(url: Urls.basePath + "recipe/" + recipeId, requestType: .get, parameters: nil)
     }
 }

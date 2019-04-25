@@ -6,6 +6,12 @@
 //  Copyright © 2019 sunasterisk. All rights reserved.
 //
 
+enum ErrorMessage: String {
+    case networkError = "The internet got lost. Please try again!"
+    case unexpectedError = "The system has an unexpected error. Please try again!"
+    case apiFailure = "The API Request has failure. Please try again!"
+}
+
 enum BaseError: Error {
     case networkError
     case httpError(httpCode: Int)
@@ -15,13 +21,13 @@ enum BaseError: Error {
     var errorMessage: String? {
         switch self {
         case .networkError:
-            return "Network Error"
+            return ErrorMessage.networkError.rawValue
         case .httpError(let code):
             return getHttpErrorMessage(httpCode: code)
         case .apiFailure:
-            return "Error"
+            return ErrorMessage.apiFailure.rawValue
         default:
-            return "Unexpected Error"
+            return ErrorMessage.unexpectedError.rawValue
         }
     }
     

@@ -22,7 +22,7 @@
 		04590610227064650071CD38 /* Attribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459060F227064650071CD38 /* Attribution.swift */; };
 		045906122270647A0071CD38 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045906112270647A0071CD38 /* Attributes.swift */; };
 		045906142270657D0071CD38 /* FlavorPiquant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045906132270657D0071CD38 /* FlavorPiquant.swift */; };
-		04590616227065890071CD38 /* FAT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04590615227065890071CD38 /* FAT.swift */; };
+		04590616227065890071CD38 /* TotalLipid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04590615227065890071CD38 /* TotalLipid.swift */; };
 		04590618227065A40071CD38 /* AttributeRanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04590617227065A40071CD38 /* AttributeRanges.swift */; };
 		0459061A227066710071CD38 /* NutritionRestrictions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04590619227066710071CD38 /* NutritionRestrictions.swift */; };
 		0459061E227069EB0071CD38 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459061D227069EB0071CD38 /* Images.swift */; };
@@ -62,7 +62,7 @@
 		0459060F227064650071CD38 /* Attribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribution.swift; sourceTree = "<group>"; };
 		045906112270647A0071CD38 /* Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
 		045906132270657D0071CD38 /* FlavorPiquant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorPiquant.swift; sourceTree = "<group>"; };
-		04590615227065890071CD38 /* FAT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAT.swift; sourceTree = "<group>"; };
+		04590615227065890071CD38 /* TotalLipid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalLipid.swift; sourceTree = "<group>"; };
 		04590617227065A40071CD38 /* AttributeRanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeRanges.swift; sourceTree = "<group>"; };
 		04590619227066710071CD38 /* NutritionRestrictions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionRestrictions.swift; sourceTree = "<group>"; };
 		0459061D227069EB0071CD38 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -98,6 +98,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0456FAA52271B32000D98BF0 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		045905AE226D925C0071CD38 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +126,7 @@
 		045905B9226D925C0071CD38 /* CuisineRecipe */ = {
 			isa = PBXGroup;
 			children = (
+				0456FAA52271B32000D98BF0 /* Helper */,
 				04C7627222716A58003FCA87 /* Repositories */,
 				045905F9227005F10071CD38 /* Extensions */,
 				045905D4226D9CD30071CD38 /* App */,
@@ -202,7 +210,7 @@
 				0459060F227064650071CD38 /* Attribution.swift */,
 				045906112270647A0071CD38 /* Attributes.swift */,
 				045906132270657D0071CD38 /* FlavorPiquant.swift */,
-				04590615227065890071CD38 /* FAT.swift */,
+				04590615227065890071CD38 /* TotalLipid.swift */,
 				04590617227065A40071CD38 /* AttributeRanges.swift */,
 				04590619227066710071CD38 /* NutritionRestrictions.swift */,
 			);
@@ -213,9 +221,9 @@
 			isa = PBXGroup;
 			children = (
 				0459061D227069EB0071CD38 /* Images.swift */,
-				0459061F22706A030071CD38 /* NutritionEstimates.swift */,
 				0459062122706A230071CD38 /* Source.swift */,
 				0459062322706A400071CD38 /* Unit.swift */,
+				0459061F22706A030071CD38 /* NutritionEstimates.swift */,
 			);
 			path = GetDetailRecipe;
 			sourceTree = "<group>";
@@ -457,7 +465,7 @@
 				04590618227065A40071CD38 /* AttributeRanges.swift in Sources */,
 				04C7626C227154F2003FCA87 /* GetRecipesRequest.swift in Sources */,
 				04590606227063A20071CD38 /* Matches.swift in Sources */,
-				04590616227065890071CD38 /* FAT.swift in Sources */,
+				04590616227065890071CD38 /* TotalLipid.swift in Sources */,
 				0459062422706A400071CD38 /* Unit.swift in Sources */,
 				04C7626A22715315003FCA87 /* BaseRequest.swift in Sources */,
 				045905C3226D925C0071CD38 /* CuisineRecipe.xcdatamodeld in Sources */,
