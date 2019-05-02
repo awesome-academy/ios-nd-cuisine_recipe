@@ -16,7 +16,7 @@
 		045905F0227004230071CD38 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045905EF227004150071CD38 /* MainViewController.swift */; };
 		045905FB227005FF0071CD38 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045905FA227005FF0071CD38 /* UIColor+.swift */; };
 		045906042270635E0071CD38 /* RecipesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045906032270635E0071CD38 /* RecipesResponse.swift */; };
-		04590606227063A20071CD38 /* Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04590605227063A20071CD38 /* Matches.swift */; };
+		04590606227063A20071CD38 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04590605227063A20071CD38 /* Recipes.swift */; };
 		04590608227063C60071CD38 /* Flavors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04590607227063C60071CD38 /* Flavors.swift */; };
 		0459060A2270640A0071CD38 /* ImageUrlsBySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045906092270640A0071CD38 /* ImageUrlsBySize.swift */; };
 		0459060C227064250071CD38 /* Criteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459060B227064250071CD38 /* Criteria.swift */; };
@@ -60,7 +60,7 @@
 		045905EF227004150071CD38 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		045905FA227005FF0071CD38 /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		045906032270635E0071CD38 /* RecipesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesResponse.swift; sourceTree = "<group>"; };
-		04590605227063A20071CD38 /* Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matches.swift; sourceTree = "<group>"; };
+		04590605227063A20071CD38 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		04590607227063C60071CD38 /* Flavors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flavors.swift; sourceTree = "<group>"; };
 		045906092270640A0071CD38 /* ImageUrlsBySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUrlsBySize.swift; sourceTree = "<group>"; };
 		0459060B227064250071CD38 /* Criteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Criteria.swift; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 		0459061B227069140071CD38 /* SearchRecipes */ = {
 			isa = PBXGroup;
 			children = (
-				04590605227063A20071CD38 /* Matches.swift */,
+				04590605227063A20071CD38 /* Recipes.swift */,
 				04590607227063C60071CD38 /* Flavors.swift */,
 				045906092270640A0071CD38 /* ImageUrlsBySize.swift */,
 				0459060B227064250071CD38 /* Criteria.swift */,
@@ -485,7 +485,7 @@
 				045906042270635E0071CD38 /* RecipesResponse.swift in Sources */,
 				04590618227065A40071CD38 /* AttributeRanges.swift in Sources */,
 				04C7626C227154F2003FCA87 /* GetRecipesRequest.swift in Sources */,
-				04590606227063A20071CD38 /* Matches.swift in Sources */,
+				04590606227063A20071CD38 /* Recipes.swift in Sources */,
 				04590616227065890071CD38 /* TotalLipid.swift in Sources */,
 				0459062422706A400071CD38 /* Unit.swift in Sources */,
 				04C7626A22715315003FCA87 /* BaseRequest.swift in Sources */,

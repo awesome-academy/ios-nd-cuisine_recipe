@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum ErrorMessages: String {
-    case isNullable = "Please enter the recipe you're looking for."
+enum ErrorMessages {
+    static let recipeNameEmpty = "Please enter the recipe you're looking for."
 }

@@ -11,16 +11,19 @@ import Alamofire
 
 final class MainViewController: UIViewController {
     private let repoRepository = RecipesRepositoryImpl(api: APIService.shared)
-    private var recipes: [Matches] = []
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var containerHomeView: UIView!
-    @IBOutlet weak var containerSearchView: UIView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var containerHomeView: UIView!
+    @IBOutlet private weak var containerSearchView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
         searchBar.delegate = self
+        configView()
+    }
+    
+    func configView() {
+        navigationController?.navigationBar.prefersLargeTitles = true
         containerSearchView.isHidden = true
     }
 }
@@ -30,7 +33,7 @@ extension MainViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         guard let searchText = searchBar.text?.trimmingCharacters(in: .whitespaces) else { return }
         if searchText.isEmpty {
-            showAlert(message: ErrorMessages.isNullable.rawValue)
+            showAlert(message: ErrorMessages.recipeNameEmpty)
             return
         }
     }
