@@ -10,42 +10,38 @@ import UIKit
 import Alamofire
 
 final class MainViewController: UIViewController {
-    private let repoRepository = RecipesRepositoryImpl(api: APIService.shared)
-    
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var containerHomeView: UIView!
     @IBOutlet private weak var containerSearchView: UIView!
     
+    private lazy var categoryViewController: CategoryViewController = {
+        let vc = CategoryViewController.instantiate()
+        addChild(vc)
+        return vc
+    }()
+    
+    private lazy var searchViewController: SearchViewController = {
+        let vc = SearchViewController.instantiate()
+        addChild(vc)
+        return vc
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
         configView()
     }
     
     func configView() {
         navigationController?.navigationBar.prefersLargeTitles = true
         containerSearchView.isHidden = true
+        searchBar.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
-    
-    private lazy var categoryViewController: CategoryViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var vc = storyboard.instantiateViewController(withIdentifier: "CategoryController") as! CategoryViewController
-        addChild(vc)
-        return vc
-    }()
-    
-    private lazy var searchViewController: SearchViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var vc = storyboard.instantiateViewController(withIdentifier: "SearchController") as! SearchViewController
-        addChild(vc)
-        return vc
-    }()
     
     private func add(asChildViewController viewController: UIViewController) {
         addChild(viewController)

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		041519BF227AAD2700078E63 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519BE227AAD2700078E63 /* Constants.swift */; };
 		041519C5227AD69600078E63 /* SearchByCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519C4227AD69600078E63 /* SearchByCategoryVC.swift */; };
+		041519CB227B063B00078E63 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519CA227B063B00078E63 /* Storyboards.swift */; };
+		041519D0227BD7FD00078E63 /* CustomGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519CF227BD7FD00078E63 /* CustomGestureRecognizer.swift */; };
 		045905BB226D925C0071CD38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045905BA226D925C0071CD38 /* AppDelegate.swift */; };
 		045905C0226D925C0071CD38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045905BE226D925C0071CD38 /* Main.storyboard */; };
 		045905C3226D925C0071CD38 /* CuisineRecipe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 045905C1226D925C0071CD38 /* CuisineRecipe.xcdatamodeld */; };
@@ -52,6 +54,9 @@
 /* Begin PBXFileReference section */
 		041519BE227AAD2700078E63 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		041519C4227AD69600078E63 /* SearchByCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByCategoryVC.swift; sourceTree = "<group>"; };
+		041519CA227B063B00078E63 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		041519CC227B0DD000078E63 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		041519CF227BD7FD00078E63 /* CustomGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGestureRecognizer.swift; sourceTree = "<group>"; };
 		045905B7226D925C0071CD38 /* CuisineRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CuisineRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045905BA226D925C0071CD38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		045905BF226D925C0071CD38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,12 +113,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		041519BD227AAD1600078E63 /* Constants */ = {
+		041519BD227AAD1600078E63 /* Support */ = {
 			isa = PBXGroup;
 			children = (
 				041519BE227AAD2700078E63 /* Constants.swift */,
 			);
-			path = Constants;
+			path = Support;
 			sourceTree = "<group>";
 		};
 		041519C3227AD68100078E63 /* SearchByCategory */ = {
@@ -127,6 +132,7 @@
 		0456FAA52271B32000D98BF0 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				041519CF227BD7FD00078E63 /* CustomGestureRecognizer.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -152,7 +158,7 @@
 		045905B9226D925C0071CD38 /* CuisineRecipe */ = {
 			isa = PBXGroup;
 			children = (
-				041519BD227AAD1600078E63 /* Constants */,
+				041519BD227AAD1600078E63 /* Support */,
 				0456FAA52271B32000D98BF0 /* Helper */,
 				04C7627222716A58003FCA87 /* Repositories */,
 				045905F9227005F10071CD38 /* Extensions */,
@@ -163,6 +169,7 @@
 				045905C6226D925D0071CD38 /* LaunchScreen.storyboard */,
 				045905C9226D925D0071CD38 /* Info.plist */,
 				045905C1226D925C0071CD38 /* CuisineRecipe.xcdatamodeld */,
+				041519CC227B0DD000078E63 /* Bridging-Header.h */,
 			);
 			path = CuisineRecipe;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				045905BE226D925C0071CD38 /* Main.storyboard */,
+				041519CA227B063B00078E63 /* Storyboards.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -469,12 +477,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CuisineRecipe/Pods-CuisineRecipe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -502,6 +512,7 @@
 				04C7626A22715315003FCA87 /* BaseRequest.swift in Sources */,
 				045905C3226D925C0071CD38 /* CuisineRecipe.xcdatamodeld in Sources */,
 				04C7627422716A6C003FCA87 /* RecipesRepositiory.swift in Sources */,
+				041519D0227BD7FD00078E63 /* CustomGestureRecognizer.swift in Sources */,
 				04C76267227151D1003FCA87 /* APIUrls.swift in Sources */,
 				041519C5227AD69600078E63 /* SearchByCategoryVC.swift in Sources */,
 				045905FB227005FF0071CD38 /* UIColor+.swift in Sources */,
@@ -511,6 +522,7 @@
 				04C7627622716BDD003FCA87 /* BaseResult.swift in Sources */,
 				04D3977F2273162600D3F4A8 /* SearchViewController.swift in Sources */,
 				0459060C227064250071CD38 /* Criteria.swift in Sources */,
+				041519CB227B063B00078E63 /* Storyboards.swift in Sources */,
 				045905F0227004230071CD38 /* MainViewController.swift in Sources */,
 				0459061E227069EB0071CD38 /* Images.swift in Sources */,
 				0459062222706A230071CD38 /* Source.swift in Sources */,
@@ -679,6 +691,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunasterisk.CuisineRecipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CuisineRecipe/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -698,6 +711,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunasterisk.CuisineRecipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CuisineRecipe/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

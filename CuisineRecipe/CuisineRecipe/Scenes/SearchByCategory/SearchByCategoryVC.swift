@@ -9,6 +9,7 @@
 import UIKit
 
 final class SearchByCategoryVC: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
@@ -17,4 +18,8 @@ final class SearchByCategoryVC: UIViewController {
     func configView() {
         navigationItem.largeTitleDisplayMode = .never
     }
+}
+
+extension SearchByCategoryVC: StoryboardSceneBased {
+    static var sceneStoryboard = Storyboards.main
 }

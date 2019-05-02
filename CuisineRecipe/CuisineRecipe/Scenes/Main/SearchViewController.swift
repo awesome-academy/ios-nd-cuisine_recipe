@@ -16,3 +16,7 @@ final class SearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 }
+
+extension SearchViewController: StoryboardSceneBased {
+    static var sceneStoryboard = Storyboards.main
+}
