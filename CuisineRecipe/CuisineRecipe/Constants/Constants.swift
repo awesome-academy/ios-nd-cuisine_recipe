@@ -6,8 +6,6 @@
 //  Copyright © 2019 sunasterisk. All rights reserved.
 //
 
-import Foundation
-
 enum ErrorMessages {
     static let recipeNameEmpty = "Please enter the recipe you're looking for."
 }

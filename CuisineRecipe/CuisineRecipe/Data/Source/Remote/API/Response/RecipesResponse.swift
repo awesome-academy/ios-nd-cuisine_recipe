@@ -11,14 +11,13 @@ import Foundation
 struct RecipesResponse: Codable {
     let attribution: Attribution?
     let totalMatchCount: Int?
-    let matches: [Recipes]?
+    let recipes: [Recipe]?
     let criteria: Criteria?
     
     enum CodingKeys: String, CodingKey {
-        
         case attribution
         case totalMatchCount
-        case matches
+        case recipes = "matches"
         case criteria 
     }
 }

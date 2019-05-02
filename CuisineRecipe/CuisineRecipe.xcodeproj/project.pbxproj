@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		041519BF227AAD2700078E63 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519BE227AAD2700078E63 /* Constants.swift */; };
+		041519C5227AD69600078E63 /* SearchByCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519C4227AD69600078E63 /* SearchByCategoryVC.swift */; };
 		045905BB226D925C0071CD38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045905BA226D925C0071CD38 /* AppDelegate.swift */; };
 		045905C0226D925C0071CD38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045905BE226D925C0071CD38 /* Main.storyboard */; };
 		045905C3226D925C0071CD38 /* CuisineRecipe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 045905C1226D925C0071CD38 /* CuisineRecipe.xcdatamodeld */; };
@@ -16,7 +17,7 @@
 		045905F0227004230071CD38 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045905EF227004150071CD38 /* MainViewController.swift */; };
 		045905FB227005FF0071CD38 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045905FA227005FF0071CD38 /* UIColor+.swift */; };
 		045906042270635E0071CD38 /* RecipesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045906032270635E0071CD38 /* RecipesResponse.swift */; };
-		04590606227063A20071CD38 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04590605227063A20071CD38 /* Recipes.swift */; };
+		04590606227063A20071CD38 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04590605227063A20071CD38 /* Recipe.swift */; };
 		04590608227063C60071CD38 /* Flavors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04590607227063C60071CD38 /* Flavors.swift */; };
 		0459060A2270640A0071CD38 /* ImageUrlsBySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045906092270640A0071CD38 /* ImageUrlsBySize.swift */; };
 		0459060C227064250071CD38 /* Criteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459060B227064250071CD38 /* Criteria.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		041519BE227AAD2700078E63 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		041519C4227AD69600078E63 /* SearchByCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByCategoryVC.swift; sourceTree = "<group>"; };
 		045905B7226D925C0071CD38 /* CuisineRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CuisineRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045905BA226D925C0071CD38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		045905BF226D925C0071CD38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,7 +62,7 @@
 		045905EF227004150071CD38 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		045905FA227005FF0071CD38 /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		045906032270635E0071CD38 /* RecipesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesResponse.swift; sourceTree = "<group>"; };
-		04590605227063A20071CD38 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
+		04590605227063A20071CD38 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		04590607227063C60071CD38 /* Flavors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flavors.swift; sourceTree = "<group>"; };
 		045906092270640A0071CD38 /* ImageUrlsBySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUrlsBySize.swift; sourceTree = "<group>"; };
 		0459060B227064250071CD38 /* Criteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Criteria.swift; sourceTree = "<group>"; };
@@ -112,6 +114,14 @@
 				041519BE227AAD2700078E63 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		041519C3227AD68100078E63 /* SearchByCategory */ = {
+			isa = PBXGroup;
+			children = (
+				041519C4227AD69600078E63 /* SearchByCategoryVC.swift */,
+			);
+			path = SearchByCategory;
 			sourceTree = "<group>";
 		};
 		0456FAA52271B32000D98BF0 /* Helper */ = {
@@ -168,6 +178,7 @@
 		045905D7226D9CF40071CD38 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				041519C3227AD68100078E63 /* SearchByCategory */,
 				045905D9226D9D160071CD38 /* Main */,
 				045905D8226D9D0C0071CD38 /* Storyboards */,
 			);
@@ -223,7 +234,7 @@
 		0459061B227069140071CD38 /* SearchRecipes */ = {
 			isa = PBXGroup;
 			children = (
-				04590605227063A20071CD38 /* Recipes.swift */,
+				04590605227063A20071CD38 /* Recipe.swift */,
 				04590607227063C60071CD38 /* Flavors.swift */,
 				045906092270640A0071CD38 /* ImageUrlsBySize.swift */,
 				0459060B227064250071CD38 /* Criteria.swift */,
@@ -485,13 +496,14 @@
 				045906042270635E0071CD38 /* RecipesResponse.swift in Sources */,
 				04590618227065A40071CD38 /* AttributeRanges.swift in Sources */,
 				04C7626C227154F2003FCA87 /* GetRecipesRequest.swift in Sources */,
-				04590606227063A20071CD38 /* Recipes.swift in Sources */,
+				04590606227063A20071CD38 /* Recipe.swift in Sources */,
 				04590616227065890071CD38 /* TotalLipid.swift in Sources */,
 				0459062422706A400071CD38 /* Unit.swift in Sources */,
 				04C7626A22715315003FCA87 /* BaseRequest.swift in Sources */,
 				045905C3226D925C0071CD38 /* CuisineRecipe.xcdatamodeld in Sources */,
 				04C7627422716A6C003FCA87 /* RecipesRepositiory.swift in Sources */,
 				04C76267227151D1003FCA87 /* APIUrls.swift in Sources */,
+				041519C5227AD69600078E63 /* SearchByCategoryVC.swift in Sources */,
 				045905FB227005FF0071CD38 /* UIColor+.swift in Sources */,
 				045905BB226D925C0071CD38 /* AppDelegate.swift in Sources */,
 				045906142270657D0071CD38 /* FlavorPiquant.swift in Sources */,

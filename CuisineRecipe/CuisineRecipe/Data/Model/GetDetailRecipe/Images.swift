@@ -18,6 +18,6 @@ struct Images: Codable {
         case hostedSmallUrl
         case hostedMediumUrl
         case hostedLargeUrl
-        case imageUrlsBySize 
+        case imageUrlsBySize
     }
 }
