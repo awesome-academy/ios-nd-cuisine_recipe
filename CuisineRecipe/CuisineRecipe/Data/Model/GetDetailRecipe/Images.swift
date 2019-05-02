@@ -9,25 +9,15 @@
 import Foundation
 
 struct Images: Codable {
-    let hostedLargeUrl: String?
     let hostedSmallUrl: String?
+    let hostedMediumUrl: String?
+    let hostedLargeUrl: String?
+    let imageUrlsBySize: ImageUrlsBySize?
     
     enum CodingKeys: String, CodingKey {
+        case hostedSmallUrl
+        case hostedMediumUrl
         case hostedLargeUrl
-        case hostedSmallUrl 
-    }
-    
-    init(hostedLargeUrl: String?, hostedSmallUrl: String?) {
-        if hostedLargeUrl == nil {
-            self.hostedLargeUrl = "default_image"
-        } else {
-            self.hostedLargeUrl = hostedLargeUrl
-        }
-        
-        if hostedSmallUrl == nil {
-            self.hostedSmallUrl = "default_image"
-        } else {
-            self.hostedSmallUrl = hostedSmallUrl
-        }
+        case imageUrlsBySize 
     }
 }

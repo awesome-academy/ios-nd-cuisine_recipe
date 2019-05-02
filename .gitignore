@@ -58,4 +58,6 @@ Pods/
 
 Carthage/Build
 
+/CuisineRecipe/CuisineRecipe/Data/Source/Remote/API/APIKey.swift
+
 # End of https://www.gitignore.io/api/swift
