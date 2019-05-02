@@ -9,36 +9,41 @@
 import Foundation
 
 struct RecipeInfoResponse: Codable {
-    let attribution: Attribution?
-    let ingredientLines: [String]?
-    let flavors: Flavors?
+    let yield: String?
     let nutritionEstimates: [NutritionEstimates]?
+    let totalTime: String?
     let images: [Images]?
     let name: String?
-    let yield: String?
-    let totalTime: String?
-    let attributes: Attributes?
-    let totalTimeInSeconds: Int?
-    let rating: Double?
-    let numberOfServings: Int?
     let source: Source?
+    let prepTime: String?
     let id: String?
+    let ingredientLines: [String]?
+    let cookTime: String?
+    let attribution: Attribution?
+    let numberOfServings: Int?
+    let totalTimeInSeconds: Int?
+    let attributes: Attributes?
+    let cookTimeInSeconds: Int?
+    let flavors: Flavors?
+    let rating: Int?
     
     enum CodingKeys: String, CodingKey {
-        
-        case attribution
-        case ingredientLines
-        case flavors
+        case yield
         case nutritionEstimates
+        case totalTime
         case images
         case name
-        case yield
-        case totalTime
-        case attributes
-        case totalTimeInSeconds
-        case rating
-        case numberOfServings
         case source
-        case id 
+        case prepTime
+        case id
+        case ingredientLines
+        case cookTime
+        case attribution
+        case numberOfServings
+        case totalTimeInSeconds
+        case attributes
+        case cookTimeInSeconds
+        case flavors
+        case rating
     }
 }

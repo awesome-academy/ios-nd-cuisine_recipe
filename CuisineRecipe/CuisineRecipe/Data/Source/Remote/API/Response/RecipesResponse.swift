@@ -11,7 +11,7 @@ import Foundation
 struct RecipesResponse: Codable {
     let attribution: Attribution?
     let totalMatchCount: Int?
-    let matches: [Matches]?
+    let matches: [Recipes]?
     let criteria: Criteria?
     
     enum CodingKeys: String, CodingKey {

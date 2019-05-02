@@ -9,12 +9,14 @@
 import Foundation
 
 struct Unit: Codable {
+    let id: String?
     let name: String?
     let abbreviation: String?
     let plural: String?
     let pluralAbbreviation: String?
     
     enum CodingKeys: String, CodingKey {
+        case id
         case name
         case abbreviation
         case plural

@@ -11,24 +11,53 @@ import Alamofire
 
 final class MainViewController: UIViewController {
     private let repoRepository = RecipesRepositoryImpl(api: APIService.shared)
-    var recipes: [Matches] = []
+    
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var containerHomeView: UIView!
+    @IBOutlet private weak var containerSearchView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
+        searchBar.delegate = self
+        configView()
     }
     
-    private func fetchData() {
-        repoRepository.fetchRecipes(searchText: "Slow Cooker Beef Pot Roast", startIndex: 0) { result in
-            switch result {
-            case .success(let response):
-                guard let data = response?.matches else { return }
-                self.recipes = data
-                print(data)
-            case .failure(let error):
-                self.showError(message: error?.errorMessage)
-            }
-        }
+    func configView() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        containerSearchView.isHidden = true
     }
 }
 
+extension MainViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        guard let searchText = searchBar.text?.trimmingCharacters(in: .whitespaces) else { return }
+        if searchText.isEmpty {
+            showAlert(message: ErrorMessages.recipeNameEmpty)
+            return
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        containerSearchView.isHidden = true
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        guard let isNavBarHidden = navigationController?.isNavigationBarHidden else { return true }
+        if !isNavBarHidden {
+            containerSearchView.isHidden = false
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+        return true
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+}

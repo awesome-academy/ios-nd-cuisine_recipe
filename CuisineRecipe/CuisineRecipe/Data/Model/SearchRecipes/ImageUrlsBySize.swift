@@ -9,9 +9,11 @@
 import Foundation
 
 struct ImageUrlsBySize: Codable {
-    let size: String?
+    let size90: String?
+    let size360: String?
     
     enum CodingKeys: String, CodingKey {
-        case size = "90"
+        case size90 = "90"
+        case size360 = "360"
     }
 }
