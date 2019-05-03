@@ -35,7 +35,9 @@ final class CategoryViewController: UIViewController {
     @objc
     func handleTap(sender: CustomGestureRecognizer) {
         let vc = SearchByCategoryVC.instantiate()
-        vc.setTitleNavigationBar(title: sender.title)
+        vc.setTitleNavigationBar(sender.title)
+        vc.searchText = sender.title
+        vc.fetchData()
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -9,6 +9,7 @@
 import Foundation
 
 struct Recipe: Codable {
+    let imageUrlsBySize: ImageUrlsBySize?
     let attributes: Attributes?
     let flavors: Flavors?
     let rating: Double?
@@ -20,6 +21,7 @@ struct Recipe: Codable {
     let recipeName: String?
     
     enum CodingKeys: String, CodingKey {
+        case imageUrlsBySize
         case attributes
         case flavors
         case rating
