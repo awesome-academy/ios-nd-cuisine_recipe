@@ -38,32 +38,44 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </searchBar>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zw1-I8-yxY">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVd-gj-Mkl">
                                 <rect key="frame" x="0.0" y="141" width="375" height="477"/>
-                                <connections>
-                                    <segue destination="VzH-OS-YjV" kind="embed" id="ecr-WM-qS5"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jub-8l-kVX">
-                                <rect key="frame" x="0.0" y="141" width="375" height="477"/>
-                                <connections>
-                                    <segue destination="6B3-ge-l5Z" kind="embed" id="hIe-Cc-FBQ"/>
-                                </connections>
-                            </containerView>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zw1-I8-yxY">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
+                                        <connections>
+                                            <segue destination="VzH-OS-YjV" kind="embed" id="ecr-WM-qS5"/>
+                                        </connections>
+                                    </containerView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jub-8l-kVX">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
+                                        <connections>
+                                            <segue destination="6B3-ge-l5Z" kind="embed" id="hIe-Cc-FBQ"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jub-8l-kVX" secondAttribute="trailing" id="14e-92-t66"/>
+                                    <constraint firstItem="jub-8l-kVX" firstAttribute="top" secondItem="WVd-gj-Mkl" secondAttribute="top" id="234-OB-0CJ"/>
+                                    <constraint firstItem="Zw1-I8-yxY" firstAttribute="top" secondItem="WVd-gj-Mkl" secondAttribute="top" id="7RS-v2-M34"/>
+                                    <constraint firstItem="Zw1-I8-yxY" firstAttribute="leading" secondItem="WVd-gj-Mkl" secondAttribute="leading" id="7SF-vR-NHa"/>
+                                    <constraint firstAttribute="bottom" secondItem="jub-8l-kVX" secondAttribute="bottom" id="JuJ-4T-mW4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zw1-I8-yxY" secondAttribute="trailing" id="WOi-t6-OYO"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zw1-I8-yxY" secondAttribute="bottom" id="dOp-ur-wah"/>
+                                    <constraint firstItem="jub-8l-kVX" firstAttribute="leading" secondItem="WVd-gj-Mkl" secondAttribute="leading" id="yh9-gq-col"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zw1-I8-yxY" secondAttribute="trailing" id="9pJ-jc-B3m"/>
+                            <constraint firstItem="WVd-gj-Mkl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RKk-xQ-2Ut"/>
                             <constraint firstItem="JgX-gI-OWj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="TkZ-4V-aNL"/>
+                            <constraint firstItem="WVd-gj-Mkl" firstAttribute="top" secondItem="JgX-gI-OWj" secondAttribute="bottom" constant="16" id="VUW-U4-bhG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JgX-gI-OWj" secondAttribute="trailing" constant="16" id="Wup-0e-TCR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jub-8l-kVX" secondAttribute="trailing" id="aNJ-am-2HR"/>
-                            <constraint firstItem="jub-8l-kVX" firstAttribute="top" secondItem="JgX-gI-OWj" secondAttribute="bottom" constant="16" id="dUz-bH-0Jy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jub-8l-kVX" secondAttribute="bottom" id="ii7-QP-xqt"/>
-                            <constraint firstItem="Zw1-I8-yxY" firstAttribute="top" secondItem="JgX-gI-OWj" secondAttribute="bottom" constant="16" id="m0Y-qz-BXV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zw1-I8-yxY" secondAttribute="bottom" id="sc2-MK-ggw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WVd-gj-Mkl" secondAttribute="trailing" id="obb-85-hW0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WVd-gj-Mkl" secondAttribute="bottom" id="rrN-tT-msB"/>
                             <constraint firstItem="JgX-gI-OWj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="vfn-0R-k3O"/>
-                            <constraint firstItem="Zw1-I8-yxY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wuD-Ey-tMB"/>
-                            <constraint firstItem="jub-8l-kVX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wxP-iM-c6f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -71,6 +83,7 @@
                     <connections>
                         <outlet property="containerHomeView" destination="Zw1-I8-yxY" id="910-6t-yHW"/>
                         <outlet property="containerSearchView" destination="jub-8l-kVX" id="N1i-To-ziw"/>
+                        <outlet property="containerView" destination="WVd-gj-Mkl" id="Ib7-5F-Opf"/>
                         <outlet property="searchBar" destination="JgX-gI-OWj" id="efS-cI-C5K"/>
                     </connections>
                 </viewController>
@@ -154,7 +167,7 @@
         <!--Category View Controller-->
         <scene sceneID="vdt-GL-H6X">
             <objects>
-                <viewController storyboardIdentifier="CategoryController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VzH-OS-YjV" customClass="CategoryViewController" customModule="CuisineRecipe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoryViewController" id="VzH-OS-YjV" customClass="CategoryViewController" customModule="CuisineRecipe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Tf-ae-VAK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -349,57 +362,93 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0W-tc-PNT">
-                                <rect key="frame" x="16" y="382" width="79" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right" translatesAutoresizingMaskIntoConstraints="NO" id="Njb-Lv-oCA">
-                                <rect key="frame" x="343" y="382" width="16" height="16"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7l-zq-UaQ">
+                                <rect key="frame" x="0.0" y="382" width="375" height="37"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Recipes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT1-qf-60u">
+                                        <rect key="frame" x="16" y="0.0" width="88" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52k-CY-fOF">
+                                        <rect key="frame" x="16" y="36.5" width="343" height="0.5"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.5" id="mfJ-Ts-x5r"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right" translatesAutoresizingMaskIntoConstraints="NO" id="Jb5-Az-lTS">
+                                        <rect key="frame" x="343" y="0.0" width="16" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="4B9-rM-T7w"/>
+                                            <constraint firstAttribute="height" constant="16" id="RHA-o7-zjJ"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="UEq-Uj-S2u"/>
-                                    <constraint firstAttribute="width" constant="16" id="Zgi-dQ-ZtR"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6i-l8-mp1">
-                                <rect key="frame" x="16" y="414.5" width="343" height="0.5"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="0.5" id="7EE-pf-s9G"/>
+                                    <constraint firstItem="LT1-qf-60u" firstAttribute="leading" secondItem="l7l-zq-UaQ" secondAttribute="leading" constant="16" id="1yZ-Lf-u0j"/>
+                                    <constraint firstItem="52k-CY-fOF" firstAttribute="leading" secondItem="l7l-zq-UaQ" secondAttribute="leading" constant="16" id="3za-io-ye2"/>
+                                    <constraint firstAttribute="bottom" secondItem="52k-CY-fOF" secondAttribute="bottom" id="6XJ-Mh-Pd5"/>
+                                    <constraint firstItem="LT1-qf-60u" firstAttribute="top" secondItem="l7l-zq-UaQ" secondAttribute="top" id="J5b-8G-Mmd"/>
+                                    <constraint firstItem="Jb5-Az-lTS" firstAttribute="top" secondItem="l7l-zq-UaQ" secondAttribute="top" id="JRg-L3-XJI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jb5-Az-lTS" secondAttribute="trailing" constant="16" id="Vs6-95-snX"/>
+                                    <constraint firstItem="Jb5-Az-lTS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LT1-qf-60u" secondAttribute="trailing" constant="8" symbolic="YES" id="XVn-NM-erg"/>
+                                    <constraint firstAttribute="trailing" secondItem="52k-CY-fOF" secondAttribute="trailing" constant="16" id="Yv5-BN-QNL"/>
+                                    <constraint firstItem="52k-CY-fOF" firstAttribute="top" secondItem="LT1-qf-60u" secondAttribute="bottom" constant="16" id="ldQ-j6-MEA"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="P6i-l8-mp1" secondAttribute="trailing" constant="16" id="0cP-cp-gWY"/>
                             <constraint firstItem="AOu-XB-uq2" firstAttribute="top" secondItem="Nmy-Q1-Teq" secondAttribute="bottom" constant="8" id="0xS-wo-Yh5"/>
                             <constraint firstItem="Nmy-Q1-Teq" firstAttribute="leading" secondItem="5Tf-ae-VAK" secondAttribute="leading" constant="16" id="4Lj-d2-fme"/>
                             <constraint firstItem="AOu-XB-uq2" firstAttribute="height" secondItem="Nmy-Q1-Teq" secondAttribute="height" id="58Q-Ye-434"/>
                             <constraint firstItem="Nmy-Q1-Teq" firstAttribute="height" secondItem="5Tf-ae-VAK" secondAttribute="height" multiplier="0.35" id="5Ll-Ff-Nf5"/>
                             <constraint firstItem="Nmy-Q1-Teq" firstAttribute="top" secondItem="5Tf-ae-VAK" secondAttribute="top" constant="8" id="8a7-Oa-8lw"/>
-                            <constraint firstItem="P6i-l8-mp1" firstAttribute="leading" secondItem="5Tf-ae-VAK" secondAttribute="leading" constant="16" id="EqG-Ue-pob"/>
                             <constraint firstAttribute="trailing" secondItem="AOu-XB-uq2" secondAttribute="trailing" constant="16" id="Jqa-8A-OdY"/>
-                            <constraint firstItem="g0W-tc-PNT" firstAttribute="top" secondItem="AOu-XB-uq2" secondAttribute="bottom" constant="32" id="KF4-bT-Qfk"/>
-                            <constraint firstAttribute="trailing" secondItem="Njb-Lv-oCA" secondAttribute="trailing" constant="16" id="Njn-qw-4wF"/>
                             <constraint firstItem="AOu-XB-uq2" firstAttribute="leading" secondItem="5Tf-ae-VAK" secondAttribute="leading" constant="16" id="VJv-t2-GIH"/>
-                            <constraint firstItem="Njb-Lv-oCA" firstAttribute="top" secondItem="AOu-XB-uq2" secondAttribute="bottom" constant="32" id="jvP-y8-es9"/>
-                            <constraint firstItem="Njb-Lv-oCA" firstAttribute="leading" secondItem="g0W-tc-PNT" secondAttribute="trailing" constant="248" id="mgX-sS-xs4"/>
-                            <constraint firstItem="g0W-tc-PNT" firstAttribute="leading" secondItem="5Tf-ae-VAK" secondAttribute="leading" constant="16" id="o15-vK-UQW"/>
-                            <constraint firstItem="P6i-l8-mp1" firstAttribute="top" secondItem="g0W-tc-PNT" secondAttribute="bottom" constant="12" id="t1L-ik-rLV"/>
+                            <constraint firstItem="l7l-zq-UaQ" firstAttribute="leading" secondItem="01q-QG-9Gh" secondAttribute="leading" id="ghA-lX-AAw"/>
+                            <constraint firstItem="l7l-zq-UaQ" firstAttribute="top" secondItem="AOu-XB-uq2" secondAttribute="bottom" constant="32" id="gr5-m9-Cy8"/>
                             <constraint firstAttribute="trailing" secondItem="Nmy-Q1-Teq" secondAttribute="trailing" constant="16" id="t2J-IN-86T"/>
+                            <constraint firstItem="01q-QG-9Gh" firstAttribute="trailing" secondItem="l7l-zq-UaQ" secondAttribute="trailing" id="zYT-di-ywI"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Pex-ho-LYz"/>
+                        <viewLayoutGuide key="safeArea" id="01q-QG-9Gh"/>
                     </view>
+                    <connections>
+                        <outlet property="viewAllRecipes" destination="l7l-zq-UaQ" id="Koe-sW-4gb"/>
+                        <outlet property="viewAsian" destination="Kgh-Wb-FEs" id="rNp-3J-efZ"/>
+                        <outlet property="viewDessert" destination="Fft-e8-6wd" id="YQH-Q9-LIO"/>
+                        <outlet property="viewDrink" destination="ILc-ai-3UM" id="aKq-FL-I4s"/>
+                        <outlet property="viewMainDishes" destination="nv5-01-X3O" id="Vpn-18-Lx6"/>
+                        <outlet property="viewMeatless" destination="u1a-Wj-U7f" id="uIO-kY-hHd"/>
+                        <outlet property="viewPasta" destination="No4-BJ-Ksj" id="GmO-cT-JGE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ha9-xh-pDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3133.5999999999999" y="-391.75412293853077"/>
         </scene>
+        <!--Search By CategoryVC-->
+        <scene sceneID="0L4-u8-F1K">
+            <objects>
+                <viewController storyboardIdentifier="SearchByCategoryVC" id="2Uo-SB-fpQ" customClass="SearchByCategoryVC" customModule="CuisineRecipe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M4T-qD-Lyu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bCD-U7-AfW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bed-5I-ILy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4192" y="-317"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="m8R-dw-BSj">
             <objects>
-                <viewController storyboardIdentifier="SearchController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6B3-ge-l5Z" customClass="SearchViewController" customModule="CuisineRecipe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="6B3-ge-l5Z" customClass="SearchViewController" customModule="CuisineRecipe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KHI-Av-YsN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -423,4 +472,5 @@
         <image name="meatless" width="45.793788909912109" height="45.793788909912109"/>
         <image name="pasta" width="466.63290405273438" height="466.63290405273438"/>
     </resources>
+    <color key="tintColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
 </document>

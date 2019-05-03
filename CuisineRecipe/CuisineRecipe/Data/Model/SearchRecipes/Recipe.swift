@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Recipes: Codable {
+struct Recipe: Codable {
     let attributes: Attributes?
     let flavors: Flavors?
     let rating: Double?

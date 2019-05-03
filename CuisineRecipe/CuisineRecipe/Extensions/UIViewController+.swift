@@ -9,6 +9,10 @@
 import UIKit
 
 extension UIViewController {
+    func setTitleNavigationBar(title: String) {
+        self.navigationItem.title = title
+    }
+    
     func showError(message: String?, completion: (() -> Void)? = nil) {
         let ac = UIAlertController(title: "Error",
                                    message: message,
