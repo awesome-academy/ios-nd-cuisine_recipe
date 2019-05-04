@@ -69,6 +69,12 @@ extension SearchByCategoryVC: UICollectionViewDelegate, UICollectionViewDataSour
         cell.setContent(recipe: recipes[indexPath.item])
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailRecipeViewController.instantiate()
+        vc.recipeId = recipes[indexPath.item].id
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension SearchByCategoryVC: UICollectionViewDelegateFlowLayout {

@@ -12,15 +12,23 @@ private enum ImageProperties {
 
 extension UIImageView {
     func setupGradientBarBottom(width: CGFloat, height: CGFloat) {
-        let sHeight: CGFloat = height / 2
         let shadow = UIColor(hexString: "464646").withAlphaComponent(0.6).cgColor
         
         // Add gradient bar for image on bottom
         let bottomImageGradient = CAGradientLayer()
-        bottomImageGradient.frame = CGRect(x: 0, y: sHeight, width: width, height: sHeight)
         bottomImageGradient.colors = [UIColor.clear.cgColor, shadow]
         bottomImageGradient.locations = [0.5, 1]
-        self.layer.insertSublayer(bottomImageGradient, at: 0)
+        
+        let gradientContainerView = UIView()
+        addSubview(gradientContainerView)
+        gradientContainerView.translatesAutoresizingMaskIntoConstraints = false
+        gradientContainerView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        gradientContainerView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        gradientContainerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        gradientContainerView.layer.addSublayer(bottomImageGradient)
+        
+        bottomImageGradient.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        bottomImageGradient.frame.origin.y -= bounds.height
     }
     
     func loadImageFromUrl(urlString: String) {

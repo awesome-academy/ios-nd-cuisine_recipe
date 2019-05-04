@@ -41,6 +41,10 @@
 		0459062222706A230071CD38 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459062122706A230071CD38 /* Source.swift */; };
 		0459062422706A400071CD38 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459062322706A400071CD38 /* Unit.swift */; };
 		0459062622706A610071CD38 /* RecipeInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459062522706A610071CD38 /* RecipeInfoResponse.swift */; };
+		049C0387227D77110003AC12 /* DetailRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C0386227D77110003AC12 /* DetailRecipeViewController.swift */; };
+		049C0389227D7A660003AC12 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C0388227D7A660003AC12 /* StarRating.swift */; };
+		049C038B227D7B0F0003AC12 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C038A227D7B0F0003AC12 /* UINavigationController+.swift */; };
+		049C038E227D7D870003AC12 /* DetailRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C038D227D7D870003AC12 /* DetailRecipeCell.swift */; };
 		04C76262227147D0003FCA87 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C76261227147D0003FCA87 /* APIService.swift */; };
 		04C7626522714AB3003FCA87 /* CustomRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7626422714AB3003FCA87 /* CustomRequestAdapter.swift */; };
 		04C76267227151D1003FCA87 /* APIUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C76266227151D1003FCA87 /* APIUrls.swift */; };
@@ -96,6 +100,10 @@
 		0459062122706A230071CD38 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		0459062322706A400071CD38 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		0459062522706A610071CD38 /* RecipeInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInfoResponse.swift; sourceTree = "<group>"; };
+		049C0386227D77110003AC12 /* DetailRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeViewController.swift; sourceTree = "<group>"; };
+		049C0388227D7A660003AC12 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
+		049C038A227D7B0F0003AC12 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
+		049C038D227D7D870003AC12 /* DetailRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeCell.swift; sourceTree = "<group>"; };
 		04C76261227147D0003FCA87 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		04C7626422714AB3003FCA87 /* CustomRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRequestAdapter.swift; sourceTree = "<group>"; };
 		04C76266227151D1003FCA87 /* APIUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUrls.swift; sourceTree = "<group>"; };
@@ -165,6 +173,7 @@
 			children = (
 				041519CF227BD7FD00078E63 /* CustomGestureRecognizer.swift */,
 				041519DC227BF60100078E63 /* CustomSpinner.swift */,
+				049C0388227D7A660003AC12 /* StarRating.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -218,6 +227,7 @@
 		045905D7226D9CF40071CD38 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				049C0385227D76A20003AC12 /* DetailRecipe */,
 				041519C3227AD68100078E63 /* SearchByCategory */,
 				045905D9226D9D160071CD38 /* Main */,
 				045905D8226D9D0C0071CD38 /* Storyboards */,
@@ -263,6 +273,7 @@
 				041519D1227BE18B00078E63 /* UICollectionView+.swift */,
 				041519D8227BE65B00078E63 /* UIImageView+.swift */,
 				041519DA227BF24700078E63 /* String+.swift */,
+				049C038A227D7B0F0003AC12 /* UINavigationController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,6 +313,23 @@
 				0459061F22706A030071CD38 /* NutritionEstimates.swift */,
 			);
 			path = GetDetailRecipe;
+			sourceTree = "<group>";
+		};
+		049C0385227D76A20003AC12 /* DetailRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				049C038C227D7D730003AC12 /* Cell */,
+				049C0386227D77110003AC12 /* DetailRecipeViewController.swift */,
+			);
+			path = DetailRecipe;
+			sourceTree = "<group>";
+		};
+		049C038C227D7D730003AC12 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				049C038D227D7D870003AC12 /* DetailRecipeCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		04C7625E22713F62003FCA87 /* Source */ = {
@@ -540,9 +568,12 @@
 				041519D5227BE2A600078E63 /* SearchCell.swift in Sources */,
 				04C7627B22718563003FCA87 /* RecipeInfoRequest.swift in Sources */,
 				041519DD227BF60100078E63 /* CustomSpinner.swift in Sources */,
+				049C038B227D7B0F0003AC12 /* UINavigationController+.swift in Sources */,
 				04C76262227147D0003FCA87 /* APIService.swift in Sources */,
+				049C0389227D7A660003AC12 /* StarRating.swift in Sources */,
 				04590610227064650071CD38 /* Attribution.swift in Sources */,
 				04D397812273163500D3F4A8 /* CategoryViewController.swift in Sources */,
+				049C0387227D77110003AC12 /* DetailRecipeViewController.swift in Sources */,
 				045906042270635E0071CD38 /* RecipesResponse.swift in Sources */,
 				041519E2227C167900078E63 /* Screen.swift in Sources */,
 				04590618227065A40071CD38 /* AttributeRanges.swift in Sources */,
@@ -566,6 +597,7 @@
 				0459060C227064250071CD38 /* Criteria.swift in Sources */,
 				041519CB227B063B00078E63 /* Storyboards.swift in Sources */,
 				045905F0227004230071CD38 /* MainViewController.swift in Sources */,
+				049C038E227D7D870003AC12 /* DetailRecipeCell.swift in Sources */,
 				0459061E227069EB0071CD38 /* Images.swift in Sources */,
 				041519D9227BE65B00078E63 /* UIImageView+.swift in Sources */,
 				0459062222706A230071CD38 /* Source.swift in Sources */,
