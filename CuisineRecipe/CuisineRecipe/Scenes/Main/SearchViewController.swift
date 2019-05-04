@@ -9,14 +9,12 @@
 import UIKit
 
 final class SearchViewController: UIViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     private let repoRepository = RecipesRepositoryImpl(api: APIService.shared)
     private var recipes: [Recipe] = []
-    private var offset = 0
-    private var reachedEndOfItems = false
-    private let shimmerView = ShimmerView(frame: Screen.bounds)
     private var bottomSpinner = CustomSpinner(frame: CGRect.zero)
+    private var startIndex = 0
     var searchText: String?
     
     override func viewDidLoad() {
@@ -27,7 +25,6 @@ final class SearchViewController: UIViewController {
     func configView() {
         hideKeyboardWhenTappedAround()
         collectionView.createLayoutCollectionView(viewSize: view.frame.size)
-        view.addSubview(shimmerView)
     }
     
     func fetchData() {
@@ -38,7 +35,7 @@ final class SearchViewController: UIViewController {
             return
         }
         
-        repoRepository.fetchRecipes(searchText: searchText, startIndex: offset) { result in
+        repoRepository.fetchRecipes(searchText: searchText, startIndex: startIndex) { result in
             self.dismissLoaddingView()
             self.bottomSpinner.startAnimating()
             switch result {
@@ -55,7 +52,7 @@ final class SearchViewController: UIViewController {
     
     func clearData() {
         recipes = []
-        self.collectionView.reloadData()
+        collectionView.reloadData()
         bottomSpinner.stopAnimating()
     }
 }
@@ -75,8 +72,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == recipes.count - 1 {
-            offset += 10
-            loadMore(offset: offset)
+            startIndex += Constants.numberOfItems
+            loadMore(offset: startIndex)
         }
     }
     
@@ -95,7 +92,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func loadMore(offset: Int) {
-        guard !self.reachedEndOfItems, let searchText = searchText else {
+        guard let searchText = searchText else {
             return
         }
         

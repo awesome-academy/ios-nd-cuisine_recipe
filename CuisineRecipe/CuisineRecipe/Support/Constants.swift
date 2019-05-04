@@ -8,6 +8,7 @@
 
 enum Constants {
     static let arrRecipeType = ["Pasta", "Main Dishes", "Asian", "Drink", "Meatless", "Dessert", "All Recipes"]
+    static var numberOfItems = 10
 }
 
 enum ErrorMessages {

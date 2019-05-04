@@ -13,6 +13,6 @@ extension UICollectionView {
         layout.itemSize = CGSize(width: (viewSize.width) / 2, height: (viewSize.height - 32) / 2)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 32
-        self.collectionViewLayout = layout
+        collectionViewLayout = layout
     }
 }

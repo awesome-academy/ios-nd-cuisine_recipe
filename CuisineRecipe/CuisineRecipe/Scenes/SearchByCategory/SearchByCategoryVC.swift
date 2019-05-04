@@ -9,13 +9,12 @@
 import UIKit
 
 final class SearchByCategoryVC: UIViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     private let repoRepository = RecipesRepositoryImpl(api: APIService.shared)
-    var recipes: [Recipe] = []
-    let shimmerView = ShimmerView(frame: Screen.bounds)
-    var spinner = CustomSpinner(frame: CGRect.zero)
-    var offset = 0
-    var reachedEndOfItems = false
+    private var recipes: [Recipe] = []
+    private let shimmerView = ShimmerView(frame: Screen.bounds)
+    private var spinner = CustomSpinner(frame: CGRect.zero)
+    private var startIndex = 0
     var searchText: String?
     
     override func viewDidLoad() {
@@ -44,7 +43,7 @@ final class SearchByCategoryVC: UIViewController {
         }
         
         shimmerView.alpha = 1.0
-        repoRepository.fetchRecipes(searchText: searchText, startIndex: offset) { result in
+        repoRepository.fetchRecipes(searchText: searchText, startIndex: startIndex) { result in
             self.shimmerView.alpha = 0.0
             self.spinner.startAnimating()
             switch result {
@@ -75,15 +74,15 @@ extension SearchByCategoryVC: UICollectionViewDelegate, UICollectionViewDataSour
 extension SearchByCategoryVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == recipes.count - 1 {
-            offset += 10
-            loadMore(offset: offset)
+            startIndex += Constants.numberOfItems
+            loadMore(offset: startIndex)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionFooter {
-            //swiftlint:disable:next line_length
-            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
+            let footerView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
             footerView.addSubview(spinner)
             return footerView
         }
@@ -95,7 +94,7 @@ extension SearchByCategoryVC: UICollectionViewDelegateFlowLayout {
     }
     
     func loadMore(offset: Int) {
-        guard !self.reachedEndOfItems, let searchText = searchText else {
+        guard let searchText = searchText else {
             return
         }
         
@@ -104,9 +103,7 @@ extension SearchByCategoryVC: UICollectionViewDelegateFlowLayout {
             switch result {
             case .success(let response):
                 guard let data = response?.recipes else { return }
-                for item in data {
-                    self.recipes.append(item)
-                }
+                self.recipes += data
                 self.collectionView.reloadData()
             case .failure(let error):
                 self.spinner.stopAnimating()

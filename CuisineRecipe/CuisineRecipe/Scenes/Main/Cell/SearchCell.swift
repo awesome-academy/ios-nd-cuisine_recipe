@@ -7,9 +7,9 @@
 //
 
 final class SearchCell: UICollectionViewCell, NibReusable {
-    @IBOutlet weak var imageView: CustomImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var timeCooking: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var title: UILabel!
+    @IBOutlet private weak var timeCooking: UILabel!
 
     func setContent(recipe: Recipe) {
         guard let urlString = recipe.imageUrlsBySize?.size90 else { return }

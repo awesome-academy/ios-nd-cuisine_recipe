@@ -13,7 +13,6 @@
 		041519D0227BD7FD00078E63 /* CustomGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519CF227BD7FD00078E63 /* CustomGestureRecognizer.swift */; };
 		041519D2227BE18B00078E63 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519D1227BE18B00078E63 /* UICollectionView+.swift */; };
 		041519D5227BE2A600078E63 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519D4227BE2A600078E63 /* SearchCell.swift */; };
-		041519D7227BE37B00078E63 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519D6227BE37B00078E63 /* CustomImageView.swift */; };
 		041519D9227BE65B00078E63 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519D8227BE65B00078E63 /* UIImageView+.swift */; };
 		041519DB227BF24700078E63 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519DA227BF24700078E63 /* String+.swift */; };
 		041519DD227BF60100078E63 /* CustomSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519DC227BF60100078E63 /* CustomSpinner.swift */; };
@@ -67,7 +66,6 @@
 		041519CF227BD7FD00078E63 /* CustomGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGestureRecognizer.swift; sourceTree = "<group>"; };
 		041519D1227BE18B00078E63 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		041519D4227BE2A600078E63 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
-		041519D6227BE37B00078E63 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		041519D8227BE65B00078E63 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		041519DA227BF24700078E63 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		041519DC227BF60100078E63 /* CustomSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpinner.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 		0456FAA52271B32000D98BF0 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				041519D6227BE37B00078E63 /* CustomImageView.swift */,
 				041519CF227BD7FD00078E63 /* CustomGestureRecognizer.swift */,
 				041519DC227BF60100078E63 /* CustomSpinner.swift */,
 			);
@@ -568,7 +565,6 @@
 				04D3977F2273162600D3F4A8 /* SearchViewController.swift in Sources */,
 				0459060C227064250071CD38 /* Criteria.swift in Sources */,
 				041519CB227B063B00078E63 /* Storyboards.swift in Sources */,
-				041519D7227BE37B00078E63 /* CustomImageView.swift in Sources */,
 				045905F0227004230071CD38 /* MainViewController.swift in Sources */,
 				0459061E227069EB0071CD38 /* Images.swift in Sources */,
 				041519D9227BE65B00078E63 /* UIImageView+.swift in Sources */,
