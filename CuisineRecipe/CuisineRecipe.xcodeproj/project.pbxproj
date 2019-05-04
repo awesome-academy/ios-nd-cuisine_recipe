@@ -11,6 +11,13 @@
 		041519C5227AD69600078E63 /* SearchByCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519C4227AD69600078E63 /* SearchByCategoryVC.swift */; };
 		041519CB227B063B00078E63 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519CA227B063B00078E63 /* Storyboards.swift */; };
 		041519D0227BD7FD00078E63 /* CustomGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519CF227BD7FD00078E63 /* CustomGestureRecognizer.swift */; };
+		041519D2227BE18B00078E63 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519D1227BE18B00078E63 /* UICollectionView+.swift */; };
+		041519D5227BE2A600078E63 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519D4227BE2A600078E63 /* SearchCell.swift */; };
+		041519D9227BE65B00078E63 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519D8227BE65B00078E63 /* UIImageView+.swift */; };
+		041519DB227BF24700078E63 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519DA227BF24700078E63 /* String+.swift */; };
+		041519DD227BF60100078E63 /* CustomSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519DC227BF60100078E63 /* CustomSpinner.swift */; };
+		041519E0227BF62E00078E63 /* ShimmerEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519DF227BF62E00078E63 /* ShimmerEffect.swift */; };
+		041519E2227C167900078E63 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041519E1227C167900078E63 /* Screen.swift */; };
 		045905BB226D925C0071CD38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045905BA226D925C0071CD38 /* AppDelegate.swift */; };
 		045905C0226D925C0071CD38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045905BE226D925C0071CD38 /* Main.storyboard */; };
 		045905C3226D925C0071CD38 /* CuisineRecipe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 045905C1226D925C0071CD38 /* CuisineRecipe.xcdatamodeld */; };
@@ -57,6 +64,13 @@
 		041519CA227B063B00078E63 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		041519CC227B0DD000078E63 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		041519CF227BD7FD00078E63 /* CustomGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGestureRecognizer.swift; sourceTree = "<group>"; };
+		041519D1227BE18B00078E63 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		041519D4227BE2A600078E63 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		041519D8227BE65B00078E63 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		041519DA227BF24700078E63 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		041519DC227BF60100078E63 /* CustomSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpinner.swift; sourceTree = "<group>"; };
+		041519DF227BF62E00078E63 /* ShimmerEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerEffect.swift; sourceTree = "<group>"; };
+		041519E1227C167900078E63 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		045905B7226D925C0071CD38 /* CuisineRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CuisineRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045905BA226D925C0071CD38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		045905BF226D925C0071CD38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				041519BE227AAD2700078E63 /* Constants.swift */,
+				041519E1227C167900078E63 /* Screen.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -129,10 +144,27 @@
 			path = SearchByCategory;
 			sourceTree = "<group>";
 		};
+		041519D3227BE24300078E63 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				041519D4227BE2A600078E63 /* SearchCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		041519DE227BF61C00078E63 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				041519DF227BF62E00078E63 /* ShimmerEffect.swift */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
 		0456FAA52271B32000D98BF0 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				041519CF227BD7FD00078E63 /* CustomGestureRecognizer.swift */,
+				041519DC227BF60100078E63 /* CustomSpinner.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -158,6 +190,7 @@
 		045905B9226D925C0071CD38 /* CuisineRecipe */ = {
 			isa = PBXGroup;
 			children = (
+				041519DE227BF61C00078E63 /* Effects */,
 				041519BD227AAD1600078E63 /* Support */,
 				0456FAA52271B32000D98BF0 /* Helper */,
 				04C7627222716A58003FCA87 /* Repositories */,
@@ -204,6 +237,7 @@
 		045905D9226D9D160071CD38 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				041519D3227BE24300078E63 /* Cell */,
 				045905EF227004150071CD38 /* MainViewController.swift */,
 				04D3977E2273162600D3F4A8 /* SearchViewController.swift */,
 				04D397802273163500D3F4A8 /* CategoryViewController.swift */,
@@ -226,6 +260,9 @@
 				045905FA227005FF0071CD38 /* UIColor+.swift */,
 				04C7627722716FF1003FCA87 /* UIViewController+.swift */,
 				04D3977C2273120400D3F4A8 /* UIView+.swift */,
+				041519D1227BE18B00078E63 /* UICollectionView+.swift */,
+				041519D8227BE65B00078E63 /* UIImageView+.swift */,
+				041519DA227BF24700078E63 /* String+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -499,11 +536,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				04590608227063C60071CD38 /* Flavors.swift in Sources */,
+				041519DB227BF24700078E63 /* String+.swift in Sources */,
+				041519D5227BE2A600078E63 /* SearchCell.swift in Sources */,
 				04C7627B22718563003FCA87 /* RecipeInfoRequest.swift in Sources */,
+				041519DD227BF60100078E63 /* CustomSpinner.swift in Sources */,
 				04C76262227147D0003FCA87 /* APIService.swift in Sources */,
 				04590610227064650071CD38 /* Attribution.swift in Sources */,
 				04D397812273163500D3F4A8 /* CategoryViewController.swift in Sources */,
 				045906042270635E0071CD38 /* RecipesResponse.swift in Sources */,
+				041519E2227C167900078E63 /* Screen.swift in Sources */,
 				04590618227065A40071CD38 /* AttributeRanges.swift in Sources */,
 				04C7626C227154F2003FCA87 /* GetRecipesRequest.swift in Sources */,
 				04590606227063A20071CD38 /* Recipe.swift in Sources */,
@@ -511,6 +552,7 @@
 				0459062422706A400071CD38 /* Unit.swift in Sources */,
 				04C7626A22715315003FCA87 /* BaseRequest.swift in Sources */,
 				045905C3226D925C0071CD38 /* CuisineRecipe.xcdatamodeld in Sources */,
+				041519D2227BE18B00078E63 /* UICollectionView+.swift in Sources */,
 				04C7627422716A6C003FCA87 /* RecipesRepositiory.swift in Sources */,
 				041519D0227BD7FD00078E63 /* CustomGestureRecognizer.swift in Sources */,
 				04C76267227151D1003FCA87 /* APIUrls.swift in Sources */,
@@ -525,7 +567,9 @@
 				041519CB227B063B00078E63 /* Storyboards.swift in Sources */,
 				045905F0227004230071CD38 /* MainViewController.swift in Sources */,
 				0459061E227069EB0071CD38 /* Images.swift in Sources */,
+				041519D9227BE65B00078E63 /* UIImageView+.swift in Sources */,
 				0459062222706A230071CD38 /* Source.swift in Sources */,
+				041519E0227BF62E00078E63 /* ShimmerEffect.swift in Sources */,
 				041519BF227AAD2700078E63 /* Constants.swift in Sources */,
 				045906122270647A0071CD38 /* Attributes.swift in Sources */,
 				04C7626F227156FB003FCA87 /* BaseError.swift in Sources */,

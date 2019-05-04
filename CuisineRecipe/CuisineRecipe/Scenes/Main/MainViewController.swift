@@ -66,6 +66,10 @@ extension MainViewController: UISearchBarDelegate {
             showAlert(message: ErrorMessages.recipeNameEmpty)
             return
         }
+        
+        showLoaddingView()
+        searchViewController.searchText = searchText
+        searchViewController.fetchData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -73,6 +77,7 @@ extension MainViewController: UISearchBarDelegate {
         remove(asChildViewController: searchViewController)
         add(asChildViewController: categoryViewController)
         searchBar.resignFirstResponder()
+        searchViewController.clearData()
     }
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
