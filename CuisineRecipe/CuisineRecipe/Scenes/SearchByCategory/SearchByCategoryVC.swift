@@ -9,7 +9,7 @@
 import UIKit
 
 final class SearchByCategoryVC: UIViewController {
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var recipesCollectionView: UICollectionView!
     private let repoRepository = RecipesRepositoryImpl(api: APIService.shared)
     private var recipes: [Recipe] = []
     private let shimmerView = ShimmerView(frame: Screen.bounds)
@@ -25,7 +25,7 @@ final class SearchByCategoryVC: UIViewController {
     func configView() {
         hideKeyboardWhenTappedAround()
         navigationItem.largeTitleDisplayMode = .never
-        collectionView.createLayoutCollectionView(viewSize: view.frame.size)
+        recipesCollectionView.createLayoutCollectionView(viewSize: view.frame.size)
         view.addSubview(shimmerView)
     }
     
@@ -43,14 +43,15 @@ final class SearchByCategoryVC: UIViewController {
         }
         
         shimmerView.alpha = 1.0
-        repoRepository.fetchRecipes(searchText: searchText, startIndex: startIndex) { result in
+        repoRepository.fetchRecipes(searchText: searchText, startIndex: startIndex) { [weak self] result in
+            guard let self = self else { return }
             self.shimmerView.alpha = 0.0
             self.spinner.startAnimating()
             switch result {
             case .success(let response):
                 guard let data = response?.recipes else { return }
                 self.recipes = data
-                self.collectionView.reloadData()
+                self.recipesCollectionView.reloadData()
             case .failure(let error):
                 self.spinner.stopAnimating()
                 self.showError(message: error?.errorMessage)
@@ -71,9 +72,11 @@ extension SearchByCategoryVC: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = DetailRecipeViewController.instantiate()
-        vc.recipeId = recipes[indexPath.item].id
-        self.navigationController?.pushViewController(vc, animated: true)
+        if indexPath.item < recipes.count {
+            let vc = DetailRecipeViewController.instantiate()
+            vc.recipeId = recipes[indexPath.item].id
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
@@ -104,13 +107,14 @@ extension SearchByCategoryVC: UICollectionViewDelegateFlowLayout {
             return
         }
         
-        self.spinner.startAnimating()
-        repoRepository.fetchRecipes(searchText: searchText, startIndex: offset) { result in
+        spinner.startAnimating()
+        repoRepository.fetchRecipes(searchText: searchText, startIndex: offset) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let response):
                 guard let data = response?.recipes else { return }
                 self.recipes += data
-                self.collectionView.reloadData()
+                self.recipesCollectionView.reloadData()
             case .failure(let error):
                 self.spinner.stopAnimating()
                 self.showError(message: error?.errorMessage)

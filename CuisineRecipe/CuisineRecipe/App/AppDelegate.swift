@@ -20,7 +20,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func configTabBar() {
-        UITabBar.appearance().tintColor = UIColor(hexString: "666")
+        UITabBar.appearance().tintColor = Colors.tabBarColor
         UITabBar.appearance().backgroundColor = .white
     }
     

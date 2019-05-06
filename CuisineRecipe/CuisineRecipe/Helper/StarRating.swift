@@ -12,13 +12,12 @@ final class StarRating: UIStackView {
     
     func setupButtons(starCount: Int) {
         for _ in 0..<starCount {
-            let button = UIButton()
-            button.setImage(#imageLiteral(resourceName: "star_fill"), for: .normal)
-            
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.heightAnchor.constraint(equalToConstant: starSize).isActive = true
-            button.widthAnchor.constraint(equalToConstant: starSize).isActive = true
-            
+            let button = UIButton().then {
+                $0.setImage(#imageLiteral(resourceName: "star_fill"), for: .normal)
+                $0.translatesAutoresizingMaskIntoConstraints = false
+                $0.heightAnchor.constraint(equalToConstant: starSize).isActive = true
+                $0.widthAnchor.constraint(equalToConstant: starSize).isActive = true
+            }
             addArrangedSubview(button)
             ratingButtons.append(button)
         }

@@ -7,8 +7,8 @@
 //
 
 final class DetailRecipeCell: UICollectionViewCell, NibReusable {
-    @IBOutlet weak var nutriName: UILabel!
-    @IBOutlet weak var nutriValue: UILabel!
+    @IBOutlet private weak var nutriName: UILabel!
+    @IBOutlet private weak var nutriValue: UILabel!
     
     func configure(nutri: NutritionEstimates) {
         guard let nutritionValue = nutri.value, let nutritionName = nutri.unit?.name else {

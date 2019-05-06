@@ -521,7 +521,7 @@
                         <viewLayoutGuide key="safeArea" id="bCD-U7-AfW"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="AZJ-mz-V7Q" id="BID-jv-nNZ"/>
+                        <outlet property="recipesCollectionView" destination="AZJ-mz-V7Q" id="BID-jv-nNZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bed-5I-ILy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -619,7 +619,7 @@
                         <viewLayoutGuide key="safeArea" id="QUn-wq-Lnk"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="Mzb-t6-qrE" id="IxR-A3-3Tx"/>
+                        <outlet property="recipesCollectionView" destination="Mzb-t6-qrE" id="IxR-A3-3Tx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qj-HM-7zW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1031,18 +1031,18 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="LightStatusBar" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="StarRating" destination="AM5-MY-Ro5" id="ihf-Oi-bWv"/>
-                        <outlet property="collectionView" destination="LoD-wO-9fe" id="Bdd-vv-mIE"/>
-                        <outlet property="imageView" destination="Fvu-gU-GPR" id="bg5-4J-Tuu"/>
-                        <outlet property="imageViewHeight" destination="baw-Md-uhz" id="7in-Q8-SCM"/>
-                        <outlet property="imageViewTopConstraint" destination="sKZ-lx-CFE" id="F8G-pH-LEh"/>
-                        <outlet property="lblCookingTime" destination="GDV-36-ym4" id="PF9-aP-77p"/>
-                        <outlet property="lblPreparingTime" destination="uQ0-5d-flk" id="0QO-17-9B4"/>
-                        <outlet property="lblTotalTime" destination="dne-Qj-PQ0" id="Z6y-EE-lgh"/>
-                        <outlet property="numberOfServings" destination="6vT-Yw-DgI" id="piW-EA-ejK"/>
+                        <outlet property="cookingTimeLabel" destination="GDV-36-ym4" id="PF9-aP-77p"/>
+                        <outlet property="ingredientsTableView" destination="Ocn-k5-0RB" id="TGI-Go-QZh"/>
+                        <outlet property="numberOfServingsLabel" destination="6vT-Yw-DgI" id="piW-EA-ejK"/>
+                        <outlet property="nutritionCollectionView" destination="LoD-wO-9fe" id="Bdd-vv-mIE"/>
+                        <outlet property="preparingTimeLabel" destination="uQ0-5d-flk" id="0QO-17-9B4"/>
+                        <outlet property="recipeImageView" destination="Fvu-gU-GPR" id="bg5-4J-Tuu"/>
+                        <outlet property="recipeImageViewHeight" destination="baw-Md-uhz" id="7in-Q8-SCM"/>
+                        <outlet property="recipeImageViewTopConstraint" destination="sKZ-lx-CFE" id="F8G-pH-LEh"/>
+                        <outlet property="recipeNameLabel" destination="ZsC-uQ-Z4z" id="QOq-DB-Xw5"/>
                         <outlet property="scrollView" destination="8Jk-Qy-YND" id="XcZ-DW-r05"/>
-                        <outlet property="tableView" destination="Ocn-k5-0RB" id="TGI-Go-QZh"/>
-                        <outlet property="titleName" destination="ZsC-uQ-Z4z" id="QOq-DB-Xw5"/>
+                        <outlet property="starRatingStackView" destination="AM5-MY-Ro5" id="ihf-Oi-bWv"/>
+                        <outlet property="totalTimeLabel" destination="dne-Qj-PQ0" id="Z6y-EE-lgh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wco-XH-854" userLabel="First Responder" sceneMemberID="firstResponder"/>

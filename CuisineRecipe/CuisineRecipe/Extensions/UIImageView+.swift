@@ -12,23 +12,25 @@ private enum ImageProperties {
 
 extension UIImageView {
     func setupGradientBarBottom(width: CGFloat, height: CGFloat) {
-        let shadow = UIColor(hexString: "464646").withAlphaComponent(0.6).cgColor
+        let shadow = Colors.primaryColor.withAlphaComponent(0.6).cgColor
         
         // Add gradient bar for image on bottom
         let bottomImageGradient = CAGradientLayer()
         bottomImageGradient.colors = [UIColor.clear.cgColor, shadow]
         bottomImageGradient.locations = [0.5, 1]
         
-        let gradientContainerView = UIView()
+        let gradientContainerView = UIView().then {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
         addSubview(gradientContainerView)
-        gradientContainerView.translatesAutoresizingMaskIntoConstraints = false
-        gradientContainerView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        gradientContainerView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        gradientContainerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        
+        NSLayoutConstraint.activate([
+             gradientContainerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+             gradientContainerView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+             gradientContainerView.trailingAnchor.constraint(equalTo: self.trailingAnchor)])
         gradientContainerView.layer.addSublayer(bottomImageGradient)
         
-        bottomImageGradient.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        bottomImageGradient.frame.origin.y -= bounds.height
+        bottomImageGradient.frame = CGRect(x: 0, y: -bounds.height, width: width, height: height)
     }
     
     func loadImageFromUrl(urlString: String) {
