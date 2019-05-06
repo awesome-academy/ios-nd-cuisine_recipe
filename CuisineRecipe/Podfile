@@ -8,4 +8,5 @@ target 'CuisineRecipe' do
   # Pods for CuisineRecipe
   pod 'Alamofire', '~> 4.8'
   pod 'Reusable'
+  pod 'Then'
 end

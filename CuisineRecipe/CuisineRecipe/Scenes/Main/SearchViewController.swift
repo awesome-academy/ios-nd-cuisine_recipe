@@ -9,7 +9,7 @@
 import UIKit
 
 final class SearchViewController: UIViewController {
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var recipesCollectionView: UICollectionView!
     
     private let repoRepository = RecipesRepositoryImpl(api: APIService.shared)
     private var recipes: [Recipe] = []
@@ -24,7 +24,7 @@ final class SearchViewController: UIViewController {
     
     func configView() {
         hideKeyboardWhenTappedAround()
-        collectionView.createLayoutCollectionView(viewSize: view.frame.size)
+        recipesCollectionView.createLayoutCollectionView(viewSize: view.frame.size)
     }
     
     func fetchData() {
@@ -35,14 +35,15 @@ final class SearchViewController: UIViewController {
             return
         }
         
-        repoRepository.fetchRecipes(searchText: searchText, startIndex: startIndex) { result in
+        repoRepository.fetchRecipes(searchText: searchText, startIndex: startIndex) { [weak self] result in
+            guard let self = self else { return }
             self.dismissLoaddingView()
             self.bottomSpinner.startAnimating()
             switch result {
             case .success(let response):
                 guard let data = response?.recipes else { return }
                 self.recipes = data
-                self.collectionView.reloadData()
+                self.recipesCollectionView.reloadData()
             case .failure(let error):
                 self.bottomSpinner.stopAnimating()
                 self.showError(message: error?.errorMessage)
@@ -52,7 +53,7 @@ final class SearchViewController: UIViewController {
     
     func clearData() {
         recipes = []
-        collectionView.reloadData()
+        recipesCollectionView.reloadData()
         bottomSpinner.stopAnimating()
     }
 }
@@ -66,6 +67,14 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let cell: SearchCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.setContent(recipe: recipes[indexPath.item])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.item < recipes.count {
+            let vc = DetailRecipeViewController.instantiate()
+            vc.recipeId = recipes[indexPath.item].id
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
@@ -96,15 +105,16 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
             return
         }
         
-        self.bottomSpinner.startAnimating()
-        repoRepository.fetchRecipes(searchText: searchText, startIndex: offset) { result in
+        bottomSpinner.startAnimating()
+        repoRepository.fetchRecipes(searchText: searchText, startIndex: offset) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let response):
                 guard let data = response?.recipes else { return }
                 for item in data {
                     self.recipes.append(item)
                 }
-                self.collectionView.reloadData()
+                self.recipesCollectionView.reloadData()
             case .failure(let error):
                 self.bottomSpinner.stopAnimating()
                 self.showError(message: error?.errorMessage)

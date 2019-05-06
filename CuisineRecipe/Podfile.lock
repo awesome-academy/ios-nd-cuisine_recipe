@@ -5,20 +5,24 @@ PODS:
     - Reusable/View (= 4.0.5)
   - Reusable/Storyboard (4.0.5)
   - Reusable/View (4.0.5)
+  - Then (2.4.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8)
   - Reusable
+  - Then
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Reusable
+    - Then
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
+  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
 
-PODFILE CHECKSUM: cad7059aaa5a099ab8b648605e34663ea11d27d5
+PODFILE CHECKSUM: 6dd8d165dd071183fa440d00267013947ee8bbb5
 
 COCOAPODS: 1.6.0.beta.1
