@@ -52,7 +52,7 @@ final class DetailRecipeViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = image
         navigationController?.navigationBar.tintColor = color
     }
-    
+
     fileprivate func configView() {
         scrollView.delegate = self
         originalHeight = recipeImageViewHeight.constant
@@ -75,13 +75,18 @@ final class DetailRecipeViewController: UIViewController {
                 self.recipeInfo = data
                 self.recipeImageView.loadImageFromUrl(urlString: imgUrl)
                 self.recipeNameLabel.text = data.name
-                self.cookingTimeLabel.text = self.recipeInfo?.cookTime 
                 self.numberOfServingsLabel.text?.append(String(numOfServings))
                 
-                if let prepareTime = data.prepTime {
-                    self.preparingTimeLabel.text = (prepareTime.isEmptyOrWhitespace()) ? "0 min" : data.prepTime
+                if let cookingTime = data.cookTime {
+                    self.cookingTimeLabel.text = cookingTime.isEmptyOrWhitespace() ? "0 minute" : data.cookTime
                 } else {
-                    self.preparingTimeLabel.text = "0 min"
+                    self.cookingTimeLabel.text = "0 minute"
+                }
+                
+                if let prepareTime = data.prepTime {
+                    self.preparingTimeLabel.text = (prepareTime.isEmptyOrWhitespace()) ? "0 minute" : data.prepTime
+                } else {
+                    self.preparingTimeLabel.text = "0 minute"
                 }
             
                 self.totalTimeLabel.text = data.totalTime
@@ -93,6 +98,38 @@ final class DetailRecipeViewController: UIViewController {
                 self.showError(message: error?.errorMessage)
             }
         }
+    }
+    
+    @IBAction func handleAddShoppingListTapped(_ sender: Any) {
+        guard let recipeInfo = recipeInfo,
+            let recipeName = recipeInfo.name,
+            let recipeId = recipeInfo.id,
+            let img = recipeInfo.images,
+            let numOfServings = recipeInfo.numberOfServings else { return }
+        guard !img.isEmpty, let imgUrl = img[0].hostedLargeUrl else { return }
+        
+        guard !RecipeMO.recipeExists(recipeId: recipeId) else {
+            showToast(message: "You have added this recipe to shopping list")
+            return
+        }
+        
+        let recipe = RecipeMO.insertNewRecipe(id: recipeId,
+                                              recipeName: recipeName,
+                                              imageUrl: imgUrl,
+                                              numOfServings: Int32(numOfServings))
+        
+        guard let ingredientLines = recipeInfo.ingredientLines else { return }
+        var ingredients = Set<IngredientMO>()
+        for item in ingredientLines {
+            guard let ingredient = IngredientMO.insertNewIngredient(ingredientName: item,
+                                                                    unit: 1,
+                                                                    isBought: false) else { return }
+            ingredient.recipe = recipe
+            ingredients.insert(ingredient)
+        }
+        
+        recipe?.addToIngredients(ingredients as NSSet)
+        showToast(message: "You add the recipe to shopping list successful!")
     }
 }
 
