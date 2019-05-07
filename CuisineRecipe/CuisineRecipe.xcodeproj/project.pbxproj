@@ -51,6 +51,8 @@
 		049C039F2280080D0003AC12 /* RecipeMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C039B2280080D0003AC12 /* RecipeMO+CoreDataProperties.swift */; };
 		049C03A3228008700003AC12 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C03A2228008700003AC12 /* ShoppingListViewController.swift */; };
 		049C03A6228008F00003AC12 /* ShoppingListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C03A5228008F00003AC12 /* ShoppingListViewCell.swift */; };
+		049C03AE22813EA00003AC12 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C03AD22813EA00003AC12 /* CoreDataManager.swift */; };
+		049C03B22282C2210003AC12 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C03B12282C2210003AC12 /* PaddingLabel.swift */; };
 		04C76262227147D0003FCA87 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C76261227147D0003FCA87 /* APIService.swift */; };
 		04C7626522714AB3003FCA87 /* CustomRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7626422714AB3003FCA87 /* CustomRequestAdapter.swift */; };
 		04C76267227151D1003FCA87 /* APIUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C76266227151D1003FCA87 /* APIUrls.swift */; };
@@ -116,6 +118,8 @@
 		049C039B2280080D0003AC12 /* RecipeMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		049C03A2228008700003AC12 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		049C03A5228008F00003AC12 /* ShoppingListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewCell.swift; sourceTree = "<group>"; };
+		049C03AD22813EA00003AC12 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		049C03B12282C2210003AC12 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		04C76261227147D0003FCA87 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		04C7626422714AB3003FCA87 /* CustomRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRequestAdapter.swift; sourceTree = "<group>"; };
 		04C76266227151D1003FCA87 /* APIUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUrls.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				041519CF227BD7FD00078E63 /* CustomGestureRecognizer.swift */,
 				041519DC227BF60100078E63 /* CustomSpinner.swift */,
 				049C0388227D7A660003AC12 /* StarRating.swift */,
+				049C03B12282C2210003AC12 /* PaddingLabel.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				049C03992280080D0003AC12 /* IngredientMO+CoreDataProperties.swift */,
 				049C039A2280080D0003AC12 /* RecipeMO+CoreDataClass.swift */,
 				049C039B2280080D0003AC12 /* RecipeMO+CoreDataProperties.swift */,
+				049C03AD22813EA00003AC12 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -652,10 +658,12 @@
 				0459062222706A230071CD38 /* Source.swift in Sources */,
 				041519E0227BF62E00078E63 /* ShimmerEffect.swift in Sources */,
 				041519BF227AAD2700078E63 /* Constants.swift in Sources */,
+				049C03B22282C2210003AC12 /* PaddingLabel.swift in Sources */,
 				045906122270647A0071CD38 /* Attributes.swift in Sources */,
 				04C7626F227156FB003FCA87 /* BaseError.swift in Sources */,
 				04C7627822716FF1003FCA87 /* UIViewController+.swift in Sources */,
 				04C7626522714AB3003FCA87 /* CustomRequestAdapter.swift in Sources */,
+				049C03AE22813EA00003AC12 /* CoreDataManager.swift in Sources */,
 				04C7627D227188B5003FCA87 /* APIKey.swift in Sources */,
 				04D3977D2273120400D3F4A8 /* UIView+.swift in Sources */,
 				049C03A3228008700003AC12 /* ShoppingListViewController.swift in Sources */,

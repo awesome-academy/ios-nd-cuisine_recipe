@@ -15,6 +15,7 @@ enum Colors {
     static let primaryColor = UIColor(hexString: "464646")
     static let textColor = UIColor(hexString: "067F78")
     static let tabBarColor = UIColor(hexString: "666")
+    static let toastBackgroundColor = UIColor(hexString: "C0C0C0")
 }
 
 enum ErrorMessages {

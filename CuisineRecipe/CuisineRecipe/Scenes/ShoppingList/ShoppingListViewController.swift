@@ -10,6 +10,7 @@ import UIKit
 
 final class ShoppingListViewController: UIViewController {
     @IBOutlet private weak var recipesTableView: UITableView!
+    
     private var recipes: [RecipeMO] = []
     
     override func viewDidLoad() {
@@ -34,8 +35,12 @@ final class ShoppingListViewController: UIViewController {
     }
     
     fileprivate func fetchData() {
-        recipes = RecipeMO.getAllRecipes()
-        self.recipesTableView.reloadData()
+        recipes = RecipeMO.getAllRecipes().sorted {
+            guard let recipeName1 = $0.recipeName,
+                let recipeName2 = $1.recipeName else { return false }
+            return recipeName1 < recipeName2
+        }
+        recipesTableView.reloadData()
     }
 }
 

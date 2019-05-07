@@ -21,16 +21,16 @@ extension IngredientMO {
     @NSManaged public var isBought: Bool
     @NSManaged public var recipe: RecipeMO?
 
-    static func insertNewIngredient(ingredientName: String, unit: Int32, isBought: Bool) -> IngredientMO? {
-        guard let moc = AppDelegate.managedObjectContext else { return nil }
+    static func insertIngredient(ingredientName: String, unit: Int32, isBought: Bool) -> IngredientMO? {
+        let context = CoreDataManager.context 
         let ingredient = NSEntityDescription.insertNewObject(forEntityName: "Ingredient",
-                                                             into: moc) as! IngredientMO
+                                                             into: context) as! IngredientMO
         ingredient.ingredientName = ingredientName
         ingredient.unit = unit
         ingredient.isBought = isBought
         
         do {
-            try moc.save()
+            try context.save()
         } catch {
             let nserror = error as NSError
             print("Cannot save Core Data. Error is: \(nserror), \(nserror.userInfo)")

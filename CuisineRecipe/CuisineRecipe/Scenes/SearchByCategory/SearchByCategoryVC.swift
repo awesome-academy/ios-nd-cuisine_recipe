@@ -22,6 +22,11 @@ final class SearchByCategoryVC: UIViewController {
         configView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     func configView() {
         hideKeyboardWhenTappedAround()
         navigationItem.largeTitleDisplayMode = .never

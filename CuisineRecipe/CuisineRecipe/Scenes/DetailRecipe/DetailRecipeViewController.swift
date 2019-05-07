@@ -32,22 +32,23 @@ final class DetailRecipeViewController: UIViewController {
         configView()
         fetchData()
     }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configNavigationBar(image: UIImage(), color: .white)
+        configNavigationBar(image: UIImage(), color: .white, isHideNavigationBar: false)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        configNavigationBar(image: nil, color: Colors.primaryColor)
+        configNavigationBar(image: nil, color: Colors.primaryColor, isHideNavigationBar: true)
     }
     
-    func configNavigationBar(image: UIImage?, color: UIColor) {
+    func configNavigationBar(image: UIImage?, color: UIColor, isHideNavigationBar: Bool) {
+        navigationController?.setNavigationBarHidden(isHideNavigationBar, animated: true)
         navigationController?.navigationBar.setBackgroundImage(image, for: .default)
         navigationController?.navigationBar.shadowImage = image
         navigationController?.navigationBar.tintColor = color
@@ -57,7 +58,7 @@ final class DetailRecipeViewController: UIViewController {
         scrollView.delegate = self
         originalHeight = recipeImageViewHeight.constant
         ingredientsTableView.tableFooterView = UITableViewHeaderFooterView()
-        recipeImageView.setupGradientBarBottom(width: recipeImageView.frame.width, height: recipeImageView.frame.height)
+        recipeImageView.setupGradientBarBottom(width: view.frame.width, height: recipeImageView.frame.height)
     }
     
     fileprivate func fetchData() {
@@ -68,17 +69,16 @@ final class DetailRecipeViewController: UIViewController {
             case .success(let response):
                 guard let data = response,
                     let img = data.images,
-                    let numOfServings = data.numberOfServings,
                     let rating = data.rating else { return }
                 guard !img.isEmpty, let imgUrl = img[0].hostedLargeUrl else { return }
                 
                 self.recipeInfo = data
                 self.recipeImageView.loadImageFromUrl(urlString: imgUrl)
                 self.recipeNameLabel.text = data.name
-                self.numberOfServingsLabel.text?.append(String(numOfServings))
+                self.numberOfServingsLabel.text?.append(String(data.numberOfServings))
                 
                 if let cookingTime = data.cookTime {
-                    self.cookingTimeLabel.text = cookingTime.isEmptyOrWhitespace() ? "0 minute" : data.cookTime
+                    self.cookingTimeLabel.text = cookingTime.isEmptyOrWhitespace() ? "0 minute" : cookingTime
                 } else {
                     self.cookingTimeLabel.text = "0 minute"
                 }
@@ -102,28 +102,28 @@ final class DetailRecipeViewController: UIViewController {
     
     @IBAction func handleAddShoppingListTapped(_ sender: Any) {
         guard let recipeInfo = recipeInfo,
-            let recipeName = recipeInfo.name,
-            let recipeId = recipeInfo.id,
             let img = recipeInfo.images,
-            let numOfServings = recipeInfo.numberOfServings else { return }
-        guard !img.isEmpty, let imgUrl = img[0].hostedLargeUrl else { return }
+            !img.isEmpty,
+            let imgUrl = img[0].hostedLargeUrl else { return }
         
         guard !RecipeMO.recipeExists(recipeId: recipeId) else {
             showToast(message: "You have added this recipe to shopping list")
             return
         }
         
-        let recipe = RecipeMO.insertNewRecipe(id: recipeId,
-                                              recipeName: recipeName,
+        let recipe = RecipeMO.insertNewRecipe(id: recipeInfo.id,
+                                              recipeName: recipeInfo.name,
                                               imageUrl: imgUrl,
-                                              numOfServings: Int32(numOfServings))
+                                              numOfServings: Int32(recipeInfo.numberOfServings))
         
         guard let ingredientLines = recipeInfo.ingredientLines else { return }
         var ingredients = Set<IngredientMO>()
+        
+        guard !ingredientLines.isEmpty else { return }
         for item in ingredientLines {
-            guard let ingredient = IngredientMO.insertNewIngredient(ingredientName: item,
-                                                                    unit: 1,
-                                                                    isBought: false) else { return }
+            guard let ingredient = IngredientMO.insertIngredient(ingredientName: item,
+                                                                 unit: 1,
+                                                                 isBought: false) else { return }
             ingredient.recipe = recipe
             ingredients.insert(ingredient)
         }
@@ -138,13 +138,15 @@ extension DetailRecipeViewController: UIScrollViewDelegate {
         let offset = scrollView.contentOffset.y
         let defaultTop: CGFloat = 0.0
         var currentTop = defaultTop
-        if offset < 0 {
-            currentTop = offset
-            recipeImageViewHeight.constant = originalHeight - offset
-        } else {
-            recipeImageViewHeight.constant = originalHeight
+        if scrollView == self.scrollView {
+            if offset < 0 {
+                currentTop = offset
+                recipeImageViewHeight.constant = originalHeight - offset
+            } else {
+                recipeImageViewHeight.constant = originalHeight
+            }
+            recipeImageViewTopConstraint.constant = currentTop
         }
-        recipeImageViewTopConstraint.constant = currentTop
     }
 }
 

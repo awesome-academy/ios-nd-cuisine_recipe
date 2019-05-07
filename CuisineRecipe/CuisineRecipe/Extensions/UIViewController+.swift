@@ -62,20 +62,20 @@ extension UIViewController {
     func showToast(message: String) {
         let sWidth = view.frame.width - 50
         let messageLabel = PaddingLabel().then {
-            $0.frame = CGRect(x: (view.frame.width / 2) - (sWidth / 2),
-                              y: 100,
+            $0.frame = CGRect(x: 0,
+                              y: 0,
                               width: sWidth,
                               height: 45)
+            $0.center = CGPoint(x: view.frame.width / 2, y: 100)
             $0.text = message
             $0.font = UIFont.systemFont(ofSize: 14)
             $0.textColor = .white
             $0.textAlignment = .center
             $0.backgroundColor = .white
             $0.numberOfLines = 0
-            $0.alpha = 1.0
             $0.layer.cornerRadius = 10
             $0.clipsToBounds = true
-            $0.backgroundColor = UIColor(hexString: "C0C0C0")
+            $0.backgroundColor = Colors.toastBackgroundColor
         }
         view.addSubview(messageLabel)
         
@@ -87,20 +87,5 @@ extension UIViewController {
         }, completion: { (_) in
             messageLabel.removeFromSuperview()
         })
-    }
-}
-
-final class PaddingLabel: UILabel {
-    let padding = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-    
-    override func drawText(in rect: CGRect) {
-        super.drawText(in: rect.inset(by: padding))
-    }
-    
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
-        let superSizeThatFits = super.sizeThatFits(size)
-        let width = superSizeThatFits.width + padding.left + padding.right
-        let height = superSizeThatFits.height + padding.top + padding.bottom
-        return CGSize(width: width, height: height)
     }
 }
