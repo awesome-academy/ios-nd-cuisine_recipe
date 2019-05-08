@@ -20,4 +20,6 @@ enum Colors {
 
 enum ErrorMessages {
     static let recipeNameEmpty = "Please enter the recipe you're looking for."
+    static let deleteRecipeUnsuccessful = "Delete recipe unsuccessful"
+    static let recipeIdEmpty = "The recipe does not has identifier"
 }

@@ -44,7 +44,7 @@ final class ShoppingListViewController: UIViewController {
     }
 }
 
-extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource {
+extension ShoppingListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipes.count
     }
@@ -71,6 +71,14 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
             }
         default:
             return
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.item < recipes.count {
+            let vc = DetailShoppingListViewController.instantiate()
+            vc.recipe = recipes[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

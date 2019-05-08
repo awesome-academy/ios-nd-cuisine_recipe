@@ -40,4 +40,26 @@ extension IngredientMO {
         print("Insert ingredient with name: \(ingredient.ingredientName ?? "") successful")
         return ingredient
     }
+    
+    static func updateIngredient(ingredientName: String, isBought: Bool) {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Ingredient")
+        let context = CoreDataManager.context
+        let predicate = NSPredicate(format: "ingredientName == %@", ingredientName)
+        fetchRequest.predicate = predicate
+        do {
+            let test = try context.fetch(fetchRequest)
+            if test.count == 1 {
+                let objectUpdate = test[0] as! NSManagedObject
+                objectUpdate.setValue(isBought, forKey: "isBought")
+                do {
+                    try context.save()
+                    print("Update ingredient successful")
+                } catch {
+                    print(error)
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
 }
