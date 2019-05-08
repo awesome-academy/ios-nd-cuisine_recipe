@@ -58,4 +58,34 @@ extension UIViewController {
         if let vc = self.presentedViewController, vc is UIAlertController {
             dismiss(animated: true, completion: nil) }
     }
+    
+    func showToast(message: String) {
+        let sWidth = view.frame.width - 50
+        let messageLabel = PaddingLabel().then {
+            $0.frame = CGRect(x: 0,
+                              y: 0,
+                              width: sWidth,
+                              height: 45)
+            $0.center = CGPoint(x: view.frame.width / 2, y: 100)
+            $0.text = message
+            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.textColor = .white
+            $0.textAlignment = .center
+            $0.backgroundColor = .white
+            $0.numberOfLines = 0
+            $0.layer.cornerRadius = 10
+            $0.clipsToBounds = true
+            $0.backgroundColor = Colors.toastBackgroundColor
+        }
+        view.addSubview(messageLabel)
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 1.5,
+                       options: .curveEaseOut,
+                       animations: {
+                        messageLabel.alpha = 0.0
+        }, completion: { (_) in
+            messageLabel.removeFromSuperview()
+        })
+    }
 }
