@@ -35,7 +35,7 @@ final class ShoppingListViewController: UIViewController {
     }
     
     fileprivate func fetchData() {
-        recipes = RecipeMO.getAllRecipes().sorted {
+        recipes = RecipeMO.shared.getAllRecipes().sorted {
             guard let recipeName1 = $0.recipeName,
                 let recipeName2 = $1.recipeName else { return false }
             return recipeName1 < recipeName2
@@ -44,7 +44,7 @@ final class ShoppingListViewController: UIViewController {
     }
 }
 
-extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource {
+extension ShoppingListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipes.count
     }
@@ -65,12 +65,20 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
             guard indexPath.row < recipes.count,
                 let recipeId = recipes[indexPath.row].id else { return }
             
-            if RecipeMO.deleteRecipe(recipeId: recipeId) {
+            if RecipeMO.shared.deleteRecipe(recipeId: recipeId) {
                 recipes.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         default:
             return
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.item < recipes.count {
+            let vc = DetailShoppingListViewController.instantiate()
+            vc.recipe = recipes[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

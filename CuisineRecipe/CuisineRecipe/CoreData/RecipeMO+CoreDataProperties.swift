@@ -25,6 +25,8 @@ extension RecipeMO {
 
 // MARK: Generated accessors for ingredients
 extension RecipeMO {
+    static let shared = RecipeMO()
+    
     @objc(addIngredientsObject:)
     @NSManaged public func addToIngredients(_ value: IngredientMO)
 
@@ -37,7 +39,7 @@ extension RecipeMO {
     @objc(removeIngredients:)
     @NSManaged public func removeFromIngredients(_ values: NSSet)
     
-    static func insertNewRecipe(id: String, recipeName: String, imageUrl: String, numOfServings: Int32) -> RecipeMO? {
+    func insertRecipe(id: String, recipeName: String, imageUrl: String, numOfServings: Int32) -> RecipeMO? {
         let context = CoreDataManager.context
         let recipe = NSEntityDescription.insertNewObject(forEntityName: "Recipe",
                                                                into: context) as! RecipeMO
@@ -59,7 +61,7 @@ extension RecipeMO {
         return recipe
     }
     
-    static func getAllRecipes() -> [RecipeMO] {
+    func getAllRecipes() -> [RecipeMO] {
         var result: [RecipeMO] = []
         let context = CoreDataManager.context
         
@@ -72,7 +74,7 @@ extension RecipeMO {
         return result
     }
     
-    static func recipeExists(recipeId: String?) -> Bool {
+    func recipeExists(recipeId: String?) -> Bool {
         let context = CoreDataManager.context
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = RecipeMO.fetchRequest()
         var subPredicates = [NSPredicate]()
@@ -93,7 +95,7 @@ extension RecipeMO {
         return resultData.isEmpty ? false : true
     }
     
-    static func deleteRecipe(recipeId: String) -> Bool {
+    func deleteRecipe(recipeId: String) -> Bool {
         let context = CoreDataManager.context 
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipe")
         
