@@ -23,3 +23,8 @@ enum ErrorMessages {
     static let deleteRecipeUnsuccessful = "Delete recipe unsuccessful"
     static let recipeIdEmpty = "The recipe does not has identifier"
 }
+
+enum ToastMessage {
+    static let recipeExists = "You have added this recipe to shopping list"
+    static let addRecipeSuccessful = "You add the recipe to shopping list successful!"
+}

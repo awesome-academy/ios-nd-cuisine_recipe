@@ -21,7 +21,9 @@ extension IngredientMO {
     @NSManaged public var isBought: Bool
     @NSManaged public var recipe: RecipeMO?
 
-    static func insertIngredient(ingredientName: String, unit: Int32, isBought: Bool) -> IngredientMO? {
+    static let shared = IngredientMO()
+    
+    func insertIngredient(ingredientName: String, unit: Int32, isBought: Bool) -> IngredientMO? {
         let context = CoreDataManager.context 
         let ingredient = NSEntityDescription.insertNewObject(forEntityName: "Ingredient",
                                                              into: context) as! IngredientMO
@@ -41,25 +43,23 @@ extension IngredientMO {
         return ingredient
     }
     
-    static func updateIngredient(ingredientName: String, isBought: Bool) {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Ingredient")
+    func updateIngredient(ingredientName: String, isBought: Bool) -> Bool {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Ingredient")
         let context = CoreDataManager.context
         let predicate = NSPredicate(format: "ingredientName == %@", ingredientName)
         fetchRequest.predicate = predicate
         do {
-            let test = try context.fetch(fetchRequest)
-            if test.count == 1 {
-                let objectUpdate = test[0] as! NSManagedObject
+            let resultData = try context.fetch(fetchRequest)
+            if resultData.count == 1 {
+                guard let objectUpdate = resultData[0] as? NSManagedObject else { return false }
                 objectUpdate.setValue(isBought, forKey: "isBought")
-                do {
-                    try context.save()
-                    print("Update ingredient successful")
-                } catch {
-                    print(error)
-                }
+                try context.save()
             }
         } catch {
             print(error)
+            return false
         }
+        print("Update ingredient successful")
+        return true
     }
 }

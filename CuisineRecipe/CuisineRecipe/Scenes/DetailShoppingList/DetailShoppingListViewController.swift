@@ -40,13 +40,13 @@ final class DetailShoppingListViewController: UIViewController {
         ingredientsTableView.tableFooterView = UITableViewHeaderFooterView()
     }
     
-    @IBAction func handleGoToRecipeTapped(_ sender: Any) {
+    @IBAction private func handleGoToRecipeTapped(_ sender: Any) {
         let vc = DetailRecipeViewController.instantiate()
         vc.recipeId = recipe?.id
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    fileprivate func fetchData() {
+    private func fetchData() {
         navigationItem.title = recipe?.recipeName
         guard let imgUrl = recipe?.imageUrl,
             let numsOfServings = recipe?.numOfServings,
@@ -62,13 +62,13 @@ final class DetailShoppingListViewController: UIViewController {
         }
     }
     
-    @IBAction func handleRemoveRecipeTapped(_ sender: Any) {
+    @IBAction private func handleRemoveRecipeTapped(_ sender: Any) {
         guard let recipeId = recipe?.id else {
             showError(message: ErrorMessages.recipeIdEmpty)
             return
         }
         
-        if RecipeMO.deleteRecipe(recipeId: recipeId) {
+        if RecipeMO.shared.deleteRecipe(recipeId: recipeId) {
             navigationController?.popViewController(animated: true)
         } else {
             showError(message: ErrorMessages.deleteRecipeUnsuccessful)
@@ -111,8 +111,8 @@ extension DetailShoppingListViewController: UITableViewDataSource, UITableViewDe
             let selectedIngredient = sortedIngredients[indexPath.row]
             guard let ingredientName = selectedIngredient.ingredientName else { return }
             selectedIngredient.isBought = !selectedIngredient.isBought
-            IngredientMO.updateIngredient(ingredientName: ingredientName,
-                                          isBought: selectedIngredient.isBought)
+            guard IngredientMO.shared.updateIngredient(ingredientName: ingredientName,
+                                                       isBought: selectedIngredient.isBought) else { return }
             tableView.reloadData()
         }
     }

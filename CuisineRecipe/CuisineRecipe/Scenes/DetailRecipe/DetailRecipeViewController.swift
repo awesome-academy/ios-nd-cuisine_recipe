@@ -106,30 +106,30 @@ final class DetailRecipeViewController: UIViewController {
             !img.isEmpty,
             let imgUrl = img[0].hostedLargeUrl else { return }
         
-        guard !RecipeMO.recipeExists(recipeId: recipeId) else {
-            showToast(message: "You have added this recipe to shopping list")
+        guard !RecipeMO.shared.recipeExists(recipeId: recipeId) else {
+            showToast(message: ToastMessage.recipeExists)
             return
         }
         
-        let recipe = RecipeMO.insertNewRecipe(id: recipeInfo.id,
-                                              recipeName: recipeInfo.name,
-                                              imageUrl: imgUrl,
-                                              numOfServings: Int32(recipeInfo.numberOfServings))
+        let recipe = RecipeMO.shared.insertRecipe(id: recipeInfo.id,
+                                                  recipeName: recipeInfo.name,
+                                                  imageUrl: imgUrl,
+                                                  numOfServings: Int32(recipeInfo.numberOfServings))
         
         guard let ingredientLines = recipeInfo.ingredientLines else { return }
         var ingredients = Set<IngredientMO>()
         
         guard !ingredientLines.isEmpty else { return }
         for item in ingredientLines {
-            guard let ingredient = IngredientMO.insertIngredient(ingredientName: item,
-                                                                 unit: 1,
-                                                                 isBought: false) else { return }
+            guard let ingredient = IngredientMO.shared.insertIngredient(ingredientName: item,
+                                                                        unit: 1,
+                                                                        isBought: false) else { return }
             ingredient.recipe = recipe
             ingredients.insert(ingredient)
         }
         
         recipe?.addToIngredients(ingredients as NSSet)
-        showToast(message: "You add the recipe to shopping list successful!")
+        showToast(message: ToastMessage.addRecipeSuccessful)
     }
 }
 
