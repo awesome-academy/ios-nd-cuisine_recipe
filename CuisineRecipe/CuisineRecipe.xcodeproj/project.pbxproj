@@ -41,6 +41,8 @@
 		0459062222706A230071CD38 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459062122706A230071CD38 /* Source.swift */; };
 		0459062422706A400071CD38 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459062322706A400071CD38 /* Unit.swift */; };
 		0459062622706A610071CD38 /* RecipeInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459062522706A610071CD38 /* RecipeInfoResponse.swift */; };
+		047E950C2283FDE900CF6211 /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E950B2283FDE900CF6211 /* CheckPermission.swift */; };
+		047E950F2283FE6200CF6211 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E950E2283FE6200CF6211 /* ShareViewController.swift */; };
 		049C0387227D77110003AC12 /* DetailRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C0386227D77110003AC12 /* DetailRecipeViewController.swift */; };
 		049C0389227D7A660003AC12 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C0388227D7A660003AC12 /* StarRating.swift */; };
 		049C038B227D7B0F0003AC12 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C038A227D7B0F0003AC12 /* UINavigationController+.swift */; };
@@ -110,6 +112,8 @@
 		0459062122706A230071CD38 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		0459062322706A400071CD38 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		0459062522706A610071CD38 /* RecipeInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInfoResponse.swift; sourceTree = "<group>"; };
+		047E950B2283FDE900CF6211 /* CheckPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPermission.swift; sourceTree = "<group>"; };
+		047E950E2283FE6200CF6211 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		049C0386227D77110003AC12 /* DetailRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeViewController.swift; sourceTree = "<group>"; };
 		049C0388227D7A660003AC12 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		049C038A227D7B0F0003AC12 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 			children = (
 				041519BE227AAD2700078E63 /* Constants.swift */,
 				041519E1227C167900078E63 /* Screen.swift */,
+				047E950B2283FDE900CF6211 /* CheckPermission.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 		045905D7226D9CF40071CD38 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				047E950D2283FE3700CF6211 /* Share */,
 				049C03A722811AC10003AC12 /* DetailShoppingList */,
 				049C03A12280083F0003AC12 /* ShoppingList */,
 				049C0385227D76A20003AC12 /* DetailRecipe */,
@@ -337,6 +343,14 @@
 				0459061F22706A030071CD38 /* NutritionEstimates.swift */,
 			);
 			path = GetDetailRecipe;
+			sourceTree = "<group>";
+		};
+		047E950D2283FE3700CF6211 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				047E950E2283FE6200CF6211 /* ShareViewController.swift */,
+			);
+			path = Share;
 			sourceTree = "<group>";
 		};
 		049C0385227D76A20003AC12 /* DetailRecipe */ = {
@@ -669,7 +683,9 @@
 				045905BB226D925C0071CD38 /* AppDelegate.swift in Sources */,
 				045906142270657D0071CD38 /* FlavorPiquant.swift in Sources */,
 				0459061A227066710071CD38 /* NutritionRestrictions.swift in Sources */,
+				047E950F2283FE6200CF6211 /* ShareViewController.swift in Sources */,
 				04C7627622716BDD003FCA87 /* BaseResult.swift in Sources */,
+				047E950C2283FDE900CF6211 /* CheckPermission.swift in Sources */,
 				04D3977F2273162600D3F4A8 /* SearchViewController.swift in Sources */,
 				0459060C227064250071CD38 /* Criteria.swift in Sources */,
 				041519CB227B063B00078E63 /* Storyboards.swift in Sources */,

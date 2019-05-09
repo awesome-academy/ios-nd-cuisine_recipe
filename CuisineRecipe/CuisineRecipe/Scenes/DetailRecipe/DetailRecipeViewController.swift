@@ -26,6 +26,7 @@ final class DetailRecipeViewController: UIViewController {
     private var originalHeight: CGFloat!
     private var recipeInfo: RecipeInfoResponse?
     var recipeId: String?
+    fileprivate var imagePickerController: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +46,10 @@ final class DetailRecipeViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         configNavigationBar(image: nil, color: Colors.primaryColor, isHideNavigationBar: true)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
-    func configNavigationBar(image: UIImage?, color: UIColor, isHideNavigationBar: Bool) {
+    private func configNavigationBar(image: UIImage?, color: UIColor, isHideNavigationBar: Bool) {
         navigationController?.setNavigationBarHidden(isHideNavigationBar, animated: true)
         navigationController?.navigationBar.setBackgroundImage(image, for: .default)
         navigationController?.navigationBar.shadowImage = image
@@ -59,6 +61,8 @@ final class DetailRecipeViewController: UIViewController {
         originalHeight = recipeImageViewHeight.constant
         ingredientsTableView.tableFooterView = UITableViewHeaderFooterView()
         recipeImageView.setupGradientBarBottom(width: view.frame.width, height: recipeImageView.frame.height)
+        imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
     }
     
     fileprivate func fetchData() {
@@ -100,7 +104,7 @@ final class DetailRecipeViewController: UIViewController {
         }
     }
     
-    @IBAction func handleAddShoppingListTapped(_ sender: Any) {
+    @IBAction private func handleAddShoppingListTapped(_ sender: Any) {
         guard let recipeInfo = recipeInfo,
             let img = recipeInfo.images,
             !img.isEmpty,
@@ -130,6 +134,14 @@ final class DetailRecipeViewController: UIViewController {
         
         recipe?.addToIngredients(ingredients as NSSet)
         showToast(message: ToastMessage.addRecipeSuccessful)
+    }
+    
+    @IBAction private func handleSnapTapped(_ sender: Any) {
+        if checkPermission(completion: { message in
+            self.showAlert(message: message)
+        }) {
+            setupActionSheet()
+        }
     }
 }
 
@@ -175,6 +187,66 @@ extension DetailRecipeViewController: UICollectionViewDataSource {
         let cell: DetailRecipeCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.configure(nutri: nutriData[indexPath.item])
         return cell
+    }
+}
+
+extension DetailRecipeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    fileprivate func setupActionSheet() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        //ActionSheet Camera
+        actionSheet.addAction(UIAlertAction(title: ImageSource.camera.rawValue,
+                                            style: .default,
+                                            handler: { _ in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                self.selectImageFrom(.camera)
+            } else {
+                self.showAlert(message: ErrorMessages.cameraNotAvailable)
+            }
+        }))
+        
+        //ActionSheet Photo Library
+        actionSheet.addAction(UIAlertAction(title: ImageSource.photoLibrary.rawValue,
+                                            style: .default,
+                                            handler: { _ in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                self.selectImageFrom(.photoLibrary)
+            } else {
+                self.showAlert(message: ErrorMessages.photoLibNotAvailable)
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    private func selectImageFrom(_ source: ImageSource) {
+        switch source {
+        case .camera:
+            imagePickerController.sourceType = .camera
+        case .photoLibrary:
+            imagePickerController.sourceType = .photoLibrary
+        }
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @objc
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            print("Cannot found image")
+            return
+        }
+        picker.dismiss(animated: true, completion: nil)
+        
+        let vc = ShareViewController.instantiate()
+        vc.achievementImage = image
+        let navController = UINavigationController(rootViewController: vc)
+        present(navController, animated: true, completion: nil)
+    }
+    
+    private func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 
