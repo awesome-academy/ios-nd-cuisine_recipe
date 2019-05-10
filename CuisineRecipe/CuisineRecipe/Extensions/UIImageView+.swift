@@ -12,7 +12,7 @@ private enum ImageProperties {
 
 extension UIImageView {
     func setupGradientBarBottom(width: CGFloat, height: CGFloat) {
-        let shadow = Colors.primaryColor.withAlphaComponent(0.6).cgColor
+        let shadow = Colors.primaryColor.cgColor
         
         // Add gradient bar for image on bottom
         let bottomImageGradient = CAGradientLayer()
