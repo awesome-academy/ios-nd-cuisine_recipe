@@ -21,9 +21,12 @@ final class ShareViewController: UIViewController {
         guard let myImage = achievementImage else { return }
         achievementImageView.image = myImage
         
-        descriptionTextView.text = Constants.descriptionPlaceholder
-        descriptionTextView.textColor = UIColor.lightGray
-        descriptionTextView.delegate = self
+        descriptionTextView.then {
+            $0.text = Constants.descriptionPlaceholder
+            $0.textColor = UIColor.lightGray
+            $0.delegate = self
+        }
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                            target: self,
                                                            action: #selector(handleCancelButtonTapped))

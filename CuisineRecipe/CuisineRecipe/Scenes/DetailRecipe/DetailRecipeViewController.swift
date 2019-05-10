@@ -40,12 +40,16 @@ final class DetailRecipeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configNavigationBar(image: UIImage(), color: .white, isHideNavigationBar: false)
+        configNavigationBar(image: UIImage(),
+                            color: .white,
+                            isHideNavigationBar: false)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        configNavigationBar(image: nil, color: Colors.primaryColor, isHideNavigationBar: true)
+        configNavigationBar(image: nil,
+                            color: Colors.primaryColor,
+                            isHideNavigationBar: true)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
@@ -137,7 +141,8 @@ final class DetailRecipeViewController: UIViewController {
     }
     
     @IBAction private func handleSnapTapped(_ sender: Any) {
-        if checkPermission(completion: { message in
+        if checkPermission(completion: { [weak self] message in
+            guard let self = self else { return }
             self.showAlert(message: message)
         }) {
             setupActionSheet()
@@ -197,7 +202,8 @@ extension DetailRecipeViewController: UIImagePickerControllerDelegate, UINavigat
         //ActionSheet Camera
         actionSheet.addAction(UIAlertAction(title: ImageSource.camera.rawValue,
                                             style: .default,
-                                            handler: { _ in
+                                            handler: { [weak self] _ in
+            guard let self = self else { return }
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 self.selectImageFrom(.camera)
             } else {
@@ -208,7 +214,8 @@ extension DetailRecipeViewController: UIImagePickerControllerDelegate, UINavigat
         //ActionSheet Photo Library
         actionSheet.addAction(UIAlertAction(title: ImageSource.photoLibrary.rawValue,
                                             style: .default,
-                                            handler: { _ in
+                                            handler: { [weak self] _ in
+            guard let self = self else { return }
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                 self.selectImageFrom(.photoLibrary)
             } else {
